@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import { Toaster } from "sonner";
-import { sun, moon } from "lucide-react";
+import { Sun, Moon } from "lucide-react"; // Fixed capitalization for icon names
 import { motion } from "framer-motion";
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
