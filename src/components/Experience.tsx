@@ -1,0 +1,120 @@
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+
+const Experience = () => {
+  const experiences = [
+    {
+      id: 1,
+      title: "Stage - Data Analyst",
+      company: "OuiCare",
+      period: "Juin 2024 - Août 2024",
+      location: "Rabat, Maroc",
+      description: "Analyse des données clients, développement de tableaux de bord Power BI et optimisation des processus d'analyse de données pour améliorer la prise de décision.",
+      skills: ["Power BI", "SQL", "Python", "Data Analysis"]
+    },
+    {
+      id: 2,
+      title: "Stage - Business Intelligence",
+      company: "MedTech Solutions",
+      period: "Juillet 2023 - Septembre 2023",
+      location: "Marrakech, Maroc",
+      description: "Conception et mise en œuvre d'un entrepôt de données pour centraliser les informations commerciales. Création de dashboards pour le suivi des KPIs et l'aide à la décision.",
+      skills: ["Data Warehousing", "ETL", "SQL Server", "Tableau"]
+    },
+    {
+      id: 3,
+      title: "Alternance - Développeur Data",
+      company: "TechInnovate",
+      period: "Septembre 2023 - Présent",
+      location: "Rabat, Maroc",
+      description: "Développement d'algorithmes d'analyse prédictive, intégration de sources de données hétérogènes et automatisation des processus ETL pour améliorer l'efficacité opérationnelle.",
+      skills: ["Machine Learning", "Python", "Data Integration", "Automation"]
+    }
+  ];
+
+  const [activeExperience, setActiveExperience] = useState(experiences[0]);
+
+  return (
+    <section id="experience" className="section-padding bg-white">
+      <div className="container mx-auto reveal">
+        <h2 className="text-3xl font-bold text-center mb-12">Mon Expérience Professionnelle</h2>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Experience Navigation */}
+          <div className="lg:col-span-1 space-y-4">
+            {experiences.map((exp) => (
+              <button
+                key={exp.id}
+                onClick={() => setActiveExperience(exp)}
+                className={`w-full text-left p-4 rounded-lg transition-all duration-300 ${
+                  activeExperience.id === exp.id
+                    ? "bg-purple-100 border-l-4 border-purple-600"
+                    : "bg-gray-50 hover:bg-purple-50"
+                }`}
+              >
+                <h3 className="font-medium text-lg">{exp.title}</h3>
+                <p className="text-gray-600">{exp.company}</p>
+                <p className="text-sm text-gray-500">{exp.period}</p>
+              </button>
+            ))}
+          </div>
+          
+          {/* Experience Details */}
+          <motion.div 
+            className="lg:col-span-2"
+            key={activeExperience.id}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Card className="p-6 shadow-md h-full">
+              <div className="flex flex-col h-full">
+                <div className="mb-4">
+                  <h3 className="text-2xl font-bold text-gray-800">{activeExperience.title}</h3>
+                  <div className="flex items-center text-gray-600 mt-1 space-x-2">
+                    <span>{activeExperience.company}</span>
+                    <span>•</span>
+                    <span>{activeExperience.location}</span>
+                  </div>
+                  <p className="text-sm text-gray-500 mt-1">{activeExperience.period}</p>
+                </div>
+                
+                <Separator className="my-4" />
+                
+                <div className="flex-grow">
+                  <p className="text-gray-700 mb-6">{activeExperience.description}</p>
+                  
+                  <div className="mt-auto">
+                    <h4 className="text-sm font-medium text-gray-600 mb-2">Compétences développées :</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {activeExperience.skills.map((skill, index) => (
+                        <Badge key={index} variant="outline" className="bg-purple-50 text-purple-700 border-purple-200">
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
+        </div>
+        
+        <div className="mt-12 p-6 bg-gray-50 rounded-lg shadow-sm">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">L'importance de l'expérience professionnelle</h3>
+          <p className="text-gray-700">
+            L'expérience professionnelle forge des compétences pratiques essentielles : résolution de problèmes réels, travail d'équipe et adaptabilité. 
+            Contrairement aux compétences théoriques, elle démontre la capacité à appliquer ses connaissances et à apprendre de nouvelles technologies pour 
+            résoudre des problèmes concrets, ce qui est très valorisé par les employeurs.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Experience;
