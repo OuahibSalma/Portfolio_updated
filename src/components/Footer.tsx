@@ -7,10 +7,16 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-8 md:mb-0">
-            <h3 className="text-2xl font-bold mb-4">Portfolio</h3>
+            <div className="flex items-center mb-4">
+              <img 
+                src="public/lovable-uploads/01b75ab7-746d-409c-adf5-33d4de8e01a6.png" 
+                alt="OS Logo" 
+                className="h-10 w-auto mr-3"
+              />
+              <h3 className="text-2xl font-bold">Ouahib Salma</h3>
+            </div>
             <p className="text-gray-400 max-w-md">
-              Un développeur web passionné par la création d'expériences numériques
-              attrayantes et fonctionnelles.
+              Étudiante en Business Intelligence and Data Analytics, passionnée par la transformation de données brutes en chefs-d'œuvre stratégiques.
             </p>
           </div>
           
@@ -35,8 +41,34 @@ const Footer = () => {
         
         <hr className="border-gray-800 my-8" />
         
-        <div className="text-center text-gray-400 text-sm">
-          <p>&copy; {currentYear} Votre Nom. Tous droits réservés.</p>
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <p className="text-center text-gray-400 text-sm mb-4 md:mb-0">
+            &copy; {currentYear} Ouahib Salma. Tous droits réservés.
+          </p>
+          <div className="flex space-x-4">
+            <a 
+              href="https://github.com/OuahibSalma" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors text-xl"
+            >
+              <i className="fa-brands fa-github"></i>
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/salma-ouahib-140b13242/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white transition-colors text-xl"
+            >
+              <i className="fa-brands fa-linkedin"></i>
+            </a>
+            <a 
+              href="mailto:salmaouahib02@gmail.com" 
+              className="text-gray-400 hover:text-white transition-colors text-xl"
+            >
+              <i className="fa-solid fa-envelope"></i>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
