@@ -4,44 +4,47 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { useLanguage } from "../context/LanguageContext";
 
 const Experience = () => {
+  const { t } = useLanguage();
+  
   const experiences = [
     {
       id: 1,
+      title: "Alternante en science de données",
+      company: "AIBOOSTforIndustries",
+      period: "Septembre 2024 - Aujourd'hui",
+      location: "Casablanca, Maroc",
+      description: "Développement de solutions basées sur le machine learning et l'IA: prédiction et analyse du turnover, chatbot avec IA générative (Streamlit), tableau de bord interactif et automatisation de la collecte de données (web scraping avec Selenium).",
+      skills: ["Python", "Pandas", "Plotly", "Matplotlib", "Bokeh", "Scikit-learn", "Langchain", "Selenium"]
+    },
+    {
+      id: 2,
+      title: "Assistante en analyse de données",
+      company: "AIBOOSTforIndustries",
+      period: "Juillet 2024 - Août 2024",
+      location: "Casablanca, Maroc",
+      description: "Développement d'algorithmes de traitement de fichiers JSON et analyse des transcriptions d'appels via LLMs.",
+      skills: ["Python", "Json", "Ftplib", "Pandas", "Wkhtmltopdf", "Pdfkit", "Jinja2"]
+    },
+    {
+      id: 3,
       title: "Stage - Data Analyst",
       company: "OuiCare",
       period: "Juin 2024 - Août 2024",
       location: "Rabat, Maroc",
       description: "Analyse des données clients, développement de tableaux de bord Power BI et optimisation des processus d'analyse de données pour améliorer la prise de décision.",
       skills: ["Power BI", "SQL", "Python", "Data Analysis"]
-    },
-    {
-      id: 2,
-      title: "Stage - Business Intelligence",
-      company: "MedTech Solutions",
-      period: "Juillet 2023 - Septembre 2023",
-      location: "Marrakech, Maroc",
-      description: "Conception et mise en œuvre d'un entrepôt de données pour centraliser les informations commerciales. Création de dashboards pour le suivi des KPIs et l'aide à la décision.",
-      skills: ["Data Warehousing", "ETL", "SQL Server", "Tableau"]
-    },
-    {
-      id: 3,
-      title: "Alternance - Développeur Data",
-      company: "TechInnovate",
-      period: "Septembre 2023 - Présent",
-      location: "Rabat, Maroc",
-      description: "Développement d'algorithmes d'analyse prédictive, intégration de sources de données hétérogènes et automatisation des processus ETL pour améliorer l'efficacité opérationnelle.",
-      skills: ["Machine Learning", "Python", "Data Integration", "Automation"]
     }
   ];
 
   const [activeExperience, setActiveExperience] = useState(experiences[0]);
 
   return (
-    <section id="experience" className="section-padding bg-white">
+    <section id="experience" className="section-padding bg-white dark:bg-gray-800">
       <div className="container mx-auto reveal">
-        <h2 className="text-3xl font-bold text-center mb-12">Mon Expérience Professionnelle</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 dark:text-white">{t('experience.title')}</h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Experience Navigation */}
@@ -52,13 +55,13 @@ const Experience = () => {
                 onClick={() => setActiveExperience(exp)}
                 className={`w-full text-left p-4 rounded-lg transition-all duration-300 ${
                   activeExperience.id === exp.id
-                    ? "bg-purple-100 border-l-4 border-purple-600"
-                    : "bg-gray-50 hover:bg-purple-50"
+                    ? "bg-purple-100 border-l-4 border-purple-600 dark:bg-purple-900 dark:border-purple-400"
+                    : "bg-gray-50 hover:bg-purple-50 dark:bg-gray-700 dark:hover:bg-gray-600"
                 }`}
               >
-                <h3 className="font-medium text-lg">{exp.title}</h3>
-                <p className="text-gray-600">{exp.company}</p>
-                <p className="text-sm text-gray-500">{exp.period}</p>
+                <h3 className="font-medium text-lg dark:text-white">{exp.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{exp.company}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">{exp.period}</p>
               </button>
             ))}
           </div>
@@ -71,28 +74,28 @@ const Experience = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <Card className="p-6 shadow-md h-full">
+            <Card className="p-6 shadow-md h-full dark:bg-gray-700">
               <div className="flex flex-col h-full">
                 <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-gray-800">{activeExperience.title}</h3>
-                  <div className="flex items-center text-gray-600 mt-1 space-x-2">
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white">{activeExperience.title}</h3>
+                  <div className="flex items-center text-gray-600 dark:text-gray-300 mt-1 space-x-2">
                     <span>{activeExperience.company}</span>
                     <span>•</span>
                     <span>{activeExperience.location}</span>
                   </div>
-                  <p className="text-sm text-gray-500 mt-1">{activeExperience.period}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{activeExperience.period}</p>
                 </div>
                 
                 <Separator className="my-4" />
                 
                 <div className="flex-grow">
-                  <p className="text-gray-700 mb-6">{activeExperience.description}</p>
+                  <p className="text-gray-700 mb-6 dark:text-gray-300">{activeExperience.description}</p>
                   
                   <div className="mt-auto">
-                    <h4 className="text-sm font-medium text-gray-600 mb-2">Compétences développées :</h4>
+                    <h4 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Compétences développées :</h4>
                     <div className="flex flex-wrap gap-2">
                       {activeExperience.skills.map((skill, index) => (
-                        <Badge key={index} variant="outline" className="bg-purple-50 text-purple-700 border-purple-200">
+                        <Badge key={index} variant="outline" className="bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-900 dark:text-purple-200 dark:border-purple-700">
                           {skill}
                         </Badge>
                       ))}
@@ -104,12 +107,10 @@ const Experience = () => {
           </motion.div>
         </div>
         
-        <div className="mt-12 p-6 bg-gray-50 rounded-lg shadow-sm">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">L'importance de l'expérience professionnelle</h3>
-          <p className="text-gray-700">
-            L'expérience professionnelle forge des compétences pratiques essentielles : résolution de problèmes réels, travail d'équipe et adaptabilité. 
-            Contrairement aux compétences théoriques, elle démontre la capacité à appliquer ses connaissances et à apprendre de nouvelles technologies pour 
-            résoudre des problèmes concrets, ce qui est très valorisé par les employeurs.
+        <div className="mt-12 p-6 bg-gray-50 rounded-lg shadow-sm dark:bg-gray-700 dark:text-gray-200">
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">{t('experience.importance')}</h3>
+          <p className="text-gray-700 dark:text-gray-300">
+            {t('experience.importanceText')}
           </p>
         </div>
       </div>

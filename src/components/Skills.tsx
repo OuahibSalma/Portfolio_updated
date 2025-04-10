@@ -95,7 +95,7 @@ const Skills = () => {
     }
   ];
 
-  // Sample data for skill charts
+  // Data for skill charts
   const programmingSkills = [
     { name: "Python", value: 90 },
     { name: "Java", value: 70 },

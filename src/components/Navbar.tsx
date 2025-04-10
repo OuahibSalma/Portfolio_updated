@@ -10,7 +10,6 @@ import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, changeLanguage, t } = useLanguage();
   const { theme, toggleTheme } = useTheme();
 
@@ -121,10 +120,10 @@ const Navbar = () => {
 
         {/* Social Links */}
         <div className="flex flex-col space-y-4 items-center pt-4">
-          <a href="https://github.com/OuahibSalma" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+          <a href="https://github.com/OuahibSalma" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
             <i className="fa-brands fa-github text-xl"></i>
           </a>
-          <a href="https://www.linkedin.com/in/salma-ouahib-140b13242/" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+          <a href="https://www.linkedin.com/in/salma-ouahib-140b13242/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
             <i className="fa-brands fa-linkedin text-xl"></i>
           </a>
           <a href="mailto:salmaouahib02@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">

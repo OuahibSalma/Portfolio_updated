@@ -1,8 +1,6 @@
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Toaster } from "sonner";
-import { Sun, Moon } from "lucide-react"; // Fixed capitalization for icon names
-import { motion } from "framer-motion";
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from '../components/About';
@@ -18,8 +16,6 @@ import { LanguageProvider } from '../context/LanguageContext';
 import { ThemeProvider } from '../context/ThemeContext';
 
 const Index = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-
   useEffect(() => {
     // Scroll reveal animation
     const handleScroll = () => {
@@ -47,7 +43,7 @@ const Index = () => {
   return (
     <ThemeProvider>
       <LanguageProvider>
-        <div className={`min-h-screen flex ${theme === 'dark' ? 'dark' : ''}`}>
+        <div className="min-h-screen flex dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
           <Toaster position="top-right" />
           <Navbar />
           <div className="flex-1 ml-16 md:ml-24 bg-gray-50 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
