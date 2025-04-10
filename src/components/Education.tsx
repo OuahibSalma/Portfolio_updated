@@ -74,21 +74,6 @@ const Education = () => {
               <p className="text-gray-700 dark:text-gray-300 mb-8">
                 {t('education.paragraph')}
               </p>
-              
-              <Separator className="my-6" />
-              
-              <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
-                <h4 className="text-lg font-medium mb-4 text-gray-800 dark:text-white">
-                  {t('education.achievements')}
-                </h4>
-                <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
-                  <li>Diplôme d'ingénieur en informatique (en cours)</li>
-                  <li>Licence en mathématiques appliquées</li>
-                  <li>Certifications techniques en développement web</li>
-                  <li>Projets académiques en science des données</li>
-                  <li>Formations professionnelles en BI et ETL</li>
-                </ul>
-              </div>
             </div>
           </div>
         </div>

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
@@ -10,6 +11,7 @@ import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, changeLanguage, t } = useLanguage();
 
   useEffect(() => {
@@ -42,43 +44,57 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className={`fixed h-full top-0 left-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 z-50 h-full transition-all duration-300 ${
         scrolled ? "bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm shadow-md" : "bg-transparent"
       }`}
       initial={{ x: -100 }}
       animate={{ x: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex flex-col h-full justify-between py-6 px-3 md:px-4 bg-white dark:bg-gray-800 shadow-md">
+      {/* Mobile menu toggle button - only visible on small screens */}
+      <button 
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+        className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-white dark:bg-gray-800 shadow-md"
+      >
+        <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 mb-1.5"></div>
+        <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 mb-1.5"></div>
+        <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200"></div>
+      </button>
+      
+      {/* Sidebar - visible on all screens but adapts for mobile */}
+      <div className={`flex flex-col h-full justify-between py-6 px-3 md:px-4 bg-white dark:bg-gray-800 shadow-md ${
+        mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
+      } transition-transform duration-300 md:translate-x-0 w-20 md:w-24 lg:w-28`}>
         {/* Logo Section */}
         <div className="flex flex-col items-center justify-center">
           <a href="#home" className="mb-4">
             <motion.div 
-              className="h-16 w-16 rounded-full bg-pink-200 flex items-center justify-center text-xl font-script"
+              className="h-14 w-14 rounded-full bg-pink-200 flex items-center justify-center text-xl font-script"
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
               OS
             </motion.div>
           </a>
-          <span className="hidden md:block text-xl font-semibold text-gray-800 dark:text-white mb-8">
+          <span className="hidden lg:block text-base font-semibold text-gray-800 dark:text-white mb-8 text-center">
             Ouahib Salma
           </span>
         </div>
 
         {/* Navigation */}
         <nav className="flex-grow">
-          <ul className="flex flex-col space-y-6 items-start">
+          <ul className="flex flex-col space-y-6 items-center">
             {navItems.map((item) => (
               <li key={item.name} className="w-full">
                 <a 
                   href={item.href} 
-                  className="flex flex-row items-center group px-2 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex flex-col md:flex-row items-center group px-2 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full justify-center md:justify-start"
                 >
                   <div className="w-8 h-8 flex items-center justify-center rounded-full text-gray-800 dark:text-white">
                     {item.icon}
                   </div>
-                  <span className="ml-3 text-base font-medium text-gray-800 dark:text-white">
+                  <span className="text-xs mt-1 md:mt-0 md:ml-2 md:text-sm font-medium text-gray-800 dark:text-white text-center md:text-left">
                     {item.name}
                   </span>
                 </a>
@@ -88,15 +104,16 @@ const Navbar = () => {
         </nav>
 
         {/* Theme and Language Toggles */}
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 items-center">
           <Button 
             onClick={handleLanguageToggle}
             variant="ghost"
-            className="flex items-center justify-center gap-2 w-full"
+            className="flex items-center justify-center w-full p-2"
+            size="sm"
           >
             <Languages size={18} />
-            <span className="font-medium">
-              {language === 'fr' ? 'English' : 'Français'}
+            <span className="sr-only md:not-sr-only md:ml-2 text-xs">
+              {language === 'fr' ? 'EN' : 'FR'}
             </span>
           </Button>
           
@@ -105,15 +122,12 @@ const Navbar = () => {
           </div>
           
           {/* Social Links */}
-          <div className="flex justify-center space-x-4 mt-2">
+          <div className="flex justify-center space-x-3 mt-2">
             <a href="https://github.com/OuahibSalma" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-              <i className="fa-brands fa-github text-xl"></i>
+              <i className="fa-brands fa-github text-lg"></i>
             </a>
             <a href="https://www.linkedin.com/in/salma-ouahib-140b13242/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-              <i className="fa-brands fa-linkedin text-xl"></i>
-            </a>
-            <a href="mailto:salmaouahib02@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-              <i className="fa-solid fa-envelope text-xl"></i>
+              <i className="fa-brands fa-linkedin text-lg"></i>
             </a>
           </div>
         </div>
