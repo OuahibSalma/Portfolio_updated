@@ -17,10 +17,9 @@ export const useTheme = () => {
 };
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  // Check if user has a preference stored in localStorage
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const savedTheme = localStorage.getItem('theme');
-    return (savedTheme === 'dark' ? 'dark' : 'light');
+    return savedTheme === 'dark' ? 'dark' : 'light';
   });
 
   useEffect(() => {

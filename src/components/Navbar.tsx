@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
@@ -6,12 +5,12 @@ import {
   Cpu, Code, Activity, MessageSquare, Languages
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import { useTheme } from "../context/ThemeContext";
+import ThemeToggle from "./ThemeToggle";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const { language, changeLanguage, t } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,7 +61,9 @@ const Navbar = () => {
               OS
             </motion.div>
           </a>
-          <span className="hidden md:block text-xl font-semibold text-gray-800 dark:text-white mb-8">Ouahib Salma</span>
+          <span className="hidden md:block text-xl font-semibold text-gray-800 dark:text-white mb-8">
+            Ouahib Salma
+          </span>
         </div>
 
         {/* Navigation */}
@@ -74,10 +75,10 @@ const Navbar = () => {
                   href={item.href} 
                   className="flex flex-row items-center group px-2 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                 >
-                  <div className="w-8 h-8 flex items-center justify-center rounded-full text-black dark:text-white">
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full text-gray-800 dark:text-white">
                     {item.icon}
                   </div>
-                  <span className="ml-3 text-base font-medium text-black dark:text-white">
+                  <span className="ml-3 text-base font-medium text-gray-800 dark:text-white">
                     {item.name}
                   </span>
                 </a>
@@ -86,30 +87,35 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        {/* Language Toggle Button */}
-        <div className="mt-4">
-          <button 
+        {/* Theme and Language Toggles */}
+        <div className="flex flex-col gap-4">
+          <Button 
             onClick={handleLanguageToggle}
-            className="flex items-center bg-white dark:bg-gray-700 px-3 py-2 rounded-full shadow-sm w-full"
+            variant="ghost"
+            className="flex items-center justify-center gap-2 w-full"
           >
-            <Languages size={18} className="mr-2" />
+            <Languages size={18} />
             <span className="font-medium">
-              {language === 'fr' ? 'Anglais' : 'Français'}
+              {language === 'fr' ? 'English' : 'Français'}
             </span>
-          </button>
-        </div>
-
-        {/* Social Links (optional) */}
-        <div className="flex justify-center space-x-4 mt-6">
-          <a href="https://github.com/OuahibSalma" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-            <i className="fa-brands fa-github text-xl"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/salma-ouahib-140b13242/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-            <i className="fa-brands fa-linkedin text-xl"></i>
-          </a>
-          <a href="mailto:salmaouahib02@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-            <i className="fa-solid fa-envelope text-xl"></i>
-          </a>
+          </Button>
+          
+          <div className="flex justify-center">
+            <ThemeToggle />
+          </div>
+          
+          {/* Social Links */}
+          <div className="flex justify-center space-x-4 mt-2">
+            <a href="https://github.com/OuahibSalma" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+              <i className="fa-brands fa-github text-xl"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/salma-ouahib-140b13242/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+              <i className="fa-brands fa-linkedin text-xl"></i>
+            </a>
+            <a href="mailto:salmaouahib02@gmail.com" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
+              <i className="fa-solid fa-envelope text-xl"></i>
+            </a>
+          </div>
         </div>
       </div>
     </motion.header>

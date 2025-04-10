@@ -1,4 +1,3 @@
-
 export const translations = {
   fr: {
     navbar: {
@@ -10,7 +9,11 @@ export const translations = {
       education: 'Formation',
       activities: 'Activités Extra',
       contact: 'Contact',
-      language: 'Français'
+      language: 'Français',
+      theme: {
+        light: 'Mode clair',
+        dark: 'Mode sombre'
+      }
     },
     hero: {
       title: 'Je me présente :',
@@ -140,7 +143,11 @@ export const translations = {
       education: 'Education',
       activities: 'Extra Activities',
       contact: 'Contact',
-      language: 'English'
+      language: 'English',
+      theme: {
+        light: 'Light mode',
+        dark: 'Dark mode'
+      }
     },
     hero: {
       title: 'Let me introduce myself:',
