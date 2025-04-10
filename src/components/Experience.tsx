@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
@@ -36,6 +35,15 @@ const Experience = () => {
       location: "Rabat, Maroc",
       description: "Analyse des données clients, développement de tableaux de bord Power BI et optimisation des processus d'analyse de données pour améliorer la prise de décision.",
       skills: ["Power BI", "SQL", "Python", "Data Analysis"]
+    },
+    {
+      id: 4,
+      title: "Scientifique de données - Machine Learning",
+      company: "Faculté des sciences de Marrakech",
+      period: "Juillet 2022 - Août 2022",
+      location: "Marrakech, Maroc",
+      description: "Exploration de diverses bibliothèques d'intelligence artificielle et mise en œuvre de la bibliothèque TensorFlow pour la détection de la violence.",
+      skills: ["Python", "TensorFlow", "Machine Learning"]
     }
   ];
 
