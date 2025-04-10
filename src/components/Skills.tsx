@@ -2,19 +2,10 @@
 import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
-import { 
-  ResponsiveContainer, 
-  PieChart, 
-  Pie, 
-  Cell, 
-  Tooltip as RechartsTooltip 
-} from 'recharts';
 
 const Skills = () => {
   const skillsRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
-
-  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#A569BD', '#5DADE2', '#45B39D', '#F4D03F'];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -95,90 +86,10 @@ const Skills = () => {
     }
   ];
 
-  // Data for skill charts
-  const programmingSkills = [
-    { name: "Python", value: 90 },
-    { name: "Java", value: 70 },
-    { name: "C/C++", value: 65 },
-    { name: "JavaScript", value: 50 },
-    { name: "HTML/CSS", value: 75 },
-  ];
-
-  const dataSkills = [
-    { name: "Data Analysis", value: 85 },
-    { name: "Power BI", value: 80 },
-    { name: "SQL", value: 75 },
-    { name: "Machine Learning", value: 60 },
-    { name: "ETL", value: 70 },
-  ];
-
   return (
     <section id="skills" className="section-padding bg-gray-50 dark:bg-gray-800 py-20 px-6 reveal" ref={skillsRef}>
       <div className="container mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">{t('skills.title')}</h2>
-        
-        {/* Skill charts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          <motion.div 
-            className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Programming Skills</h3>
-            <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={programmingSkills}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={false}
-                    label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-                    outerRadius={80}
-                    fill="#8884d8"
-                    dataKey="value"
-                  >
-                    {programmingSkills.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <RechartsTooltip />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            className="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-md"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <h3 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">Data Skills</h3>
-            <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={dataSkills}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={false}
-                    label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
-                    outerRadius={80}
-                    fill="#8884d8"
-                    dataKey="value"
-                  >
-                    {dataSkills.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <RechartsTooltip />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-          </motion.div>
-        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {skillCategories.map((category, index) => (

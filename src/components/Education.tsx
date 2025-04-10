@@ -1,31 +1,11 @@
 
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { 
-  BarChart3, 
-  LineChart, 
-  PieChart 
-} from "lucide-react";
-import { 
-  ChartContainer, 
-  ChartTooltip, 
-  ChartTooltipContent 
-} from "@/components/ui/chart";
-import { 
-  BarChart, 
-  Bar, 
-  XAxis, 
-  YAxis, 
-  CartesianGrid, 
-  Tooltip, 
-  ResponsiveContainer 
-} from "recharts";
 import { Separator } from "@/components/ui/separator";
 import { useLanguage } from "../context/LanguageContext";
 
 const Education = () => {
   const { t } = useLanguage();
-  const chartRef = useRef<HTMLDivElement>(null);
   
   const educationData = [
     { 
@@ -52,35 +32,6 @@ const Education = () => {
       institution: "2019-1020 Lycée Ibn Abbad-Marrakech",
       completed: true
     }
-  ];
-  
-  const languageSkillsData = [
-    { name: 'Python', level: 90 },
-    { name: 'Java', level: 70 },
-    { name: 'C', level: 80 },
-    { name: 'C++', level: 20 },
-    { name: 'JavaScript', level: 50 },
-    { name: 'HTML/CSS', level: 75 },
-    { name: 'PHP', level: 40 }
-  ];
-  
-  const pythonLibsData = [
-    { name: 'NumPy', level: 80 },
-    { name: 'Pandas', level: 85 },
-    { name: 'Matplotlib', level: 70 },
-    { name: 'TensorFlow', level: 60 },
-    { name: 'Scikit-learn', level: 40 },
-    { name: 'Bokeh', level: 82 },
-    { name: 'Requests', level: 30 },
-    { name: 'Time', level: 60 },
-    { name: 'JSON', level: 55 },
-    { name: 'ftplib', level: 50 }
-  ];
-  
-  const projectsData = [
-    { name: 'Projets Dev', count: 3 },
-    { name: 'Projets Data & BI', count: 4 },
-    { name: 'Mixte', count: 6 }
   ];
 
   return (
@@ -115,7 +66,7 @@ const Education = () => {
             </div>
           </div>
           
-          {/* Chart & Description */}
+          {/* Description */}
           <div className="lg:col-span-2">
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md h-full">
               <h3 className="text-xl font-semibold mb-6 text-gray-800 dark:text-white">{t('education.title_exp')}</h3>
@@ -126,60 +77,17 @@ const Education = () => {
               
               <Separator className="my-6" />
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Programming Languages Chart */}
-                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                  <h4 className="text-sm font-medium mb-4 text-gray-700 dark:text-gray-300 flex items-center">
-                    <BarChart3 className="mr-2" size={16} /> Programming Languages
-                  </h4>
-                  <div className="h-64" ref={chartRef}>
-                    <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={languageSkillsData} layout="vertical">
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis type="number" domain={[0, 100]} />
-                        <YAxis dataKey="name" type="category" width={60} />
-                        <Tooltip />
-                        <Bar dataKey="level" fill="#8884d8" radius={[0, 4, 4, 0]} />
-                      </BarChart>
-                    </ResponsiveContainer>
-                  </div>
-                </div>
-                
-                {/* Python Libraries Chart */}
-                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                  <h4 className="text-sm font-medium mb-4 text-gray-700 dark:text-gray-300 flex items-center">
-                    <PieChart className="mr-2" size={16} /> Python Libraries
-                  </h4>
-                  <div className="h-64">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={pythonLibsData.slice(0, 6)} layout="vertical">
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis type="number" domain={[0, 100]} />
-                        <YAxis dataKey="name" type="category" width={70} />
-                        <Tooltip />
-                        <Bar dataKey="level" fill="#82ca9d" radius={[0, 4, 4, 0]} />
-                      </BarChart>
-                    </ResponsiveContainer>
-                  </div>
-                </div>
-                
-                {/* Projects Chart */}
-                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                  <h4 className="text-sm font-medium mb-4 text-gray-700 dark:text-gray-300 flex items-center">
-                    <LineChart className="mr-2" size={16} /> Projects
-                  </h4>
-                  <div className="h-64">
-                    <ResponsiveContainer width="100%" height="100%">
-                      <BarChart data={projectsData}>
-                        <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="name" />
-                        <YAxis domain={[0, 10]} />
-                        <Tooltip />
-                        <Bar dataKey="count" fill="#ff8042" radius={[4, 4, 0, 0]} />
-                      </BarChart>
-                    </ResponsiveContainer>
-                  </div>
-                </div>
+              <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg">
+                <h4 className="text-lg font-medium mb-4 text-gray-800 dark:text-white">
+                  {t('education.achievements')}
+                </h4>
+                <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+                  <li>Diplôme d'ingénieur en informatique (en cours)</li>
+                  <li>Licence en mathématiques appliquées</li>
+                  <li>Certifications techniques en développement web</li>
+                  <li>Projets académiques en science des données</li>
+                  <li>Formations professionnelles en BI et ETL</li>
+                </ul>
               </div>
             </div>
           </div>
