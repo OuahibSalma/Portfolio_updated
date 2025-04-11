@@ -24,6 +24,12 @@ const Index = () => {
     // Initialize EmailJS
     emailjs.init("2aE8Jn9MjIh4c1-Xb");
     
+    // Load Font Awesome
+    const script = document.createElement('script');
+    script.src = 'https://kit.fontawesome.com/a076d05399.js';
+    script.crossOrigin = 'anonymous';
+    document.body.appendChild(script);
+    
     // Scroll reveal animation
     const handleScroll = () => {
       const reveals = document.querySelectorAll('.reveal');
