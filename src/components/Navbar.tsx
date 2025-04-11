@@ -8,11 +8,13 @@ import {
 import { useLanguage } from "../context/LanguageContext";
 import ThemeToggle from "./ThemeToggle";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, changeLanguage, t } = useLanguage();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -64,7 +66,7 @@ const Navbar = () => {
       {/* Sidebar - visible on all screens but adapts for mobile */}
       <div className={`flex flex-col h-full justify-between py-6 px-3 md:px-4 bg-white dark:bg-gray-800 shadow-md ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-      } transition-transform duration-300 md:translate-x-0 w-20 md:w-24 lg:w-28`}>
+      } transition-transform duration-300 md:translate-x-0 w-16 md:w-20 lg:w-24`}>
         {/* Logo Section */}
         <div className="flex flex-col items-center justify-center">
           <a href="#home" className="mb-4">
@@ -76,9 +78,11 @@ const Navbar = () => {
               OS
             </motion.div>
           </a>
-          <span className="hidden lg:block text-base font-semibold text-gray-800 dark:text-white mb-8 text-center">
-            Ouahib Salma
-          </span>
+          {!isMobile && (
+            <span className="text-xs md:text-sm font-semibold text-gray-800 dark:text-white mb-8 text-center">
+              Ouahib Salma
+            </span>
+          )}
         </div>
 
         {/* Navigation */}
@@ -89,14 +93,17 @@ const Navbar = () => {
                 <a 
                   href={item.href} 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex flex-col md:flex-row items-center group px-2 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full justify-center md:justify-start"
+                  className="flex flex-col items-center justify-center group px-2 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
+                  title={item.name}
                 >
                   <div className="w-8 h-8 flex items-center justify-center rounded-full text-gray-800 dark:text-white">
                     {item.icon}
                   </div>
-                  <span className="text-xs mt-1 md:mt-0 md:ml-2 md:text-sm font-medium text-gray-800 dark:text-white text-center md:text-left">
-                    {item.name}
-                  </span>
+                  {!isMobile && (
+                    <span className="text-xs mt-1 font-medium text-gray-800 dark:text-white text-center">
+                      {item.name}
+                    </span>
+                  )}
                 </a>
               </li>
             ))}
@@ -108,13 +115,15 @@ const Navbar = () => {
           <Button 
             onClick={handleLanguageToggle}
             variant="ghost"
-            className="flex items-center justify-center w-full p-2"
+            className="flex items-center justify-center w-full p-1"
             size="sm"
           >
-            <Languages size={18} />
-            <span className="sr-only md:not-sr-only md:ml-2 text-xs">
-              {language === 'fr' ? 'EN' : 'FR'}
-            </span>
+            <Languages size={16} />
+            {!isMobile && (
+              <span className="ml-1 text-xs">
+                {language === 'fr' ? 'EN' : 'FR'}
+              </span>
+            )}
           </Button>
           
           <div className="flex justify-center">
