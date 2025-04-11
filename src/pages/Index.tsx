@@ -15,11 +15,15 @@ import Education from '../components/Education';
 import { LanguageProvider } from '../context/LanguageContext';
 import { ThemeProvider } from '../context/ThemeContext';
 import { useIsMobile } from '@/hooks/use-mobile';
+import emailjs from 'emailjs-com';
 
 const Index = () => {
   const isMobile = useIsMobile();
   
   useEffect(() => {
+    // Initialize EmailJS
+    emailjs.init("2aE8Jn9MjIh4c1-Xb");
+    
     // Scroll reveal animation
     const handleScroll = () => {
       const reveals = document.querySelectorAll('.reveal');

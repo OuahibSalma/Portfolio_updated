@@ -1,3 +1,4 @@
+
 export const translations = {
   fr: {
     navbar: {
@@ -124,13 +125,13 @@ export const translations = {
       title: "Parlons de tout!",
       quote1: "Le dialogue est le chemin le plus court entre deux personnes.",
       quote2: "Les meilleures idées naissent souvent d'une simple conversation.",
-      methods: "Vous n'aimez pas les formulaires? Utilisez la méthode que vous convient.",
-      name: "Insérez votre nom",
-      email: "Insérez votre email",
-      subject: "Insérez votre sujet",
-      message: "Écrivez votre message",
-      send: "Envoyer le message",
-      thanks: "Merci de nous contacter"
+      methods: "Mes coordonnées",
+      name: "Nom",
+      email: "Email",
+      subject: "Sujet",
+      message: "Message",
+      send: "Envoyez-moi un message",
+      thanks: "Merci pour votre message"
     }
   },
   en: {
@@ -258,13 +259,13 @@ export const translations = {
       title: "Let's talk about everything!",
       quote1: "Dialogue is the shortest path between two people.",
       quote2: "The best ideas often come from a simple conversation.",
-      methods: "Don't like forms? Use the method that suits you.",
-      name: "Enter your name",
-      email: "Enter your email",
-      subject: "Enter your subject",
-      message: "Write your message",
-      send: "Send message",
-      thanks: "Thank you for contacting us"
+      methods: "My contact information",
+      name: "Name",
+      email: "Email",
+      subject: "Subject",
+      message: "Message",
+      send: "Send me a message",
+      thanks: "Thank you for your message"
     }
   }
 };
