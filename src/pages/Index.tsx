@@ -30,6 +30,12 @@ const Index = () => {
     script.crossOrigin = 'anonymous';
     document.body.appendChild(script);
     
+    // Additional Font Awesome kit (more modern version)
+    const fontAwesomeKit = document.createElement('script');
+    fontAwesomeKit.src = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js';
+    fontAwesomeKit.crossOrigin = 'anonymous';
+    document.body.appendChild(fontAwesomeKit);
+    
     // Scroll reveal animation
     const handleScroll = () => {
       const reveals = document.querySelectorAll('.reveal');

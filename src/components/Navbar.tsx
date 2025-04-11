@@ -1,16 +1,17 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Languages } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import ThemeToggle from "./ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, changeLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -68,18 +69,13 @@ const Navbar = () => {
         <div className="flex flex-col items-center justify-center">
           <a href="#home" className="mb-4">
             <motion.div 
-              className="h-14 w-14 rounded-full bg-pink-200 flex items-center justify-center text-xl font-script overflow-hidden"
+              className="h-14 w-14 rounded-full flex items-center justify-center text-xl font-script overflow-hidden"
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <img src="/lovable-uploads/OuahibSalma_rond.jpg" alt="Logo" className="w-full h-full object-cover" />
+              <img src="/lovable-uploads/logo.png" alt="Logo" className="w-full h-full object-cover" />
             </motion.div>
           </a>
-          {!isMobile && (
-            <span className="text-xs md:text-sm font-semibold text-gray-800 dark:text-white mb-8 text-center">
-              Ouahib Salma
-            </span>
-          )}
         </div>
 
         {/* Navigation */}
@@ -109,7 +105,8 @@ const Navbar = () => {
 
         {/* Theme and Language Toggles */}
         <div className="flex flex-col gap-4 items-center">
-          <div className="w-full" style={{ "--t": "90%" } as React.CSSProperties}>
+          {/* Language Toggle */}
+          <div className="w-full">
             <Button 
               onClick={handleLanguageToggle}
               variant="ghost"
@@ -122,13 +119,26 @@ const Navbar = () => {
                   {language === 'fr' ? t('navbar.english') : t('navbar.french')}
                 </span>
               ) : (
-                <Languages size={16} />
+                <i className="fas fa-language"></i>
               )}
             </Button>
           </div>
           
+          {/* Theme Toggle */}
           <div className="flex justify-center">
-            <ThemeToggle />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="w-9 h-9 rounded-full"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-4 w-4" />
+              ) : (
+                <Moon className="h-4 w-4" />
+              )}
+              <span className="sr-only">Toggle theme</span>
+            </Button>
           </div>
           
           {/* Social Links */}
