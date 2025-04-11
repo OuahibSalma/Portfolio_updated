@@ -69,38 +69,6 @@
   }
 }
 
-/* Custom sidebar styles */
-.sidebar {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar li {
-  position: relative;
-  margin-bottom: 15px;
-  transition: all 0.3s ease;
-}
-
-.sidebar li:hover {
-  transform: translateX(5px);
-}
-
-.sidebar i {
-  font-size: 1.2rem;
-}
-
-.sidebar a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: inherit;
-}
-
 .competence-icons {
   @apply flex flex-wrap justify-center gap-4;
 }

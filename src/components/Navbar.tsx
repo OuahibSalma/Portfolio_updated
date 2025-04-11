@@ -1,17 +1,19 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Moon, Sun } from "lucide-react";
+import { 
+  Home, Info, GraduationCap, PanelLeft, 
+  Cpu, Code, Activity, MessageSquare, Languages
+} from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import ThemeToggle from "./ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
-import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, changeLanguage, t } = useLanguage();
-  const { theme, toggleTheme } = useTheme();
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -32,14 +34,14 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { name: t('navbar.home'), href: "#home", icon: "fa-solid fa-house-chimney" },
-    { name: t('navbar.about'), href: "#about", icon: "fa-solid fa-circle-info" },
-    { name: t('navbar.education'), href: "#education", icon: "fa-solid fa-graduation-cap" },
-    { name: t('navbar.projects'), href: "#projects", icon: "fa-solid fa-diagram-project" },
-    { name: t('navbar.skills'), href: "#skills", icon: "fa-solid fa-keyboard" },
-    { name: t('navbar.experience'), href: "#experience", icon: "fa-solid fa-code" },
-    { name: t('navbar.activities'), href: "#activities", icon: "fa-solid fa-network-wired" },
-    { name: t('navbar.contact'), href: "#contact", icon: "fa-solid fa-comment" },
+    { name: t('navbar.home'), href: "#home", icon: <Home size={20} /> },
+    { name: t('navbar.about'), href: "#about", icon: <Info size={20} /> },
+    { name: t('navbar.education'), href: "#education", icon: <GraduationCap size={20} /> },
+    { name: t('navbar.projects'), href: "#projects", icon: <PanelLeft size={20} /> },
+    { name: t('navbar.skills'), href: "#skills", icon: <Cpu size={20} /> },
+    { name: t('navbar.experience'), href: "#experience", icon: <Code size={20} /> },
+    { name: t('navbar.activities'), href: "#activities", icon: <Activity size={20} /> },
+    { name: t('navbar.contact'), href: "#contact", icon: <MessageSquare size={20} /> },
   ];
 
   return (
@@ -62,27 +64,32 @@ const Navbar = () => {
       </button>
       
       {/* Sidebar - visible on all screens but adapts for mobile */}
-      <div className={`sidebar flex flex-col h-full justify-between py-6 px-3 md:px-4 bg-white dark:bg-gray-800 shadow-md ${
+      <div className={`flex flex-col h-full justify-between py-6 px-3 md:px-4 bg-white dark:bg-gray-800 shadow-md ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
       } transition-transform duration-300 md:translate-x-0 w-16 md:w-20 lg:w-24`}>
         {/* Logo Section */}
         <div className="flex flex-col items-center justify-center">
           <a href="#home" className="mb-4">
             <motion.div 
-              className="h-14 w-14 rounded-full flex items-center justify-center text-xl font-script overflow-hidden"
+              className="h-14 w-14 rounded-full bg-pink-200 flex items-center justify-center text-xl font-script"
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
-              <img src="/lovable-uploads/logo.png" alt="Logo" className="w-full h-full object-cover" />
+              OS
             </motion.div>
           </a>
+          {!isMobile && (
+            <span className="text-xs md:text-sm font-semibold text-gray-800 dark:text-white mb-8 text-center">
+              Ouahib Salma
+            </span>
+          )}
         </div>
 
         {/* Navigation */}
         <nav className="flex-grow">
           <ul className="flex flex-col space-y-6 items-center">
-            {navItems.map((item, index) => (
-              <li key={item.name} className="w-full" style={{ "--t": `${(index + 1) * 10}%` } as React.CSSProperties}>
+            {navItems.map((item) => (
+              <li key={item.name} className="w-full">
                 <a 
                   href={item.href} 
                   onClick={() => setMobileMenuOpen(false)}
@@ -90,7 +97,7 @@ const Navbar = () => {
                   title={item.name}
                 >
                   <div className="w-8 h-8 flex items-center justify-center rounded-full text-gray-800 dark:text-white">
-                    <i className={item.icon}></i>
+                    {item.icon}
                   </div>
                   {!isMobile && (
                     <span className="text-xs mt-1 font-medium text-gray-800 dark:text-white text-center">
@@ -105,40 +112,22 @@ const Navbar = () => {
 
         {/* Theme and Language Toggles */}
         <div className="flex flex-col gap-4 items-center">
-          {/* Language Toggle */}
-          <div className="w-full">
-            <Button 
-              onClick={handleLanguageToggle}
-              variant="ghost"
-              className="flex items-center justify-center w-full p-1"
-              size="sm"
-            >
-              <i className="fas fa-language mr-1"></i>
-              {!isMobile ? (
-                <span className="text-xs">
-                  {language === 'fr' ? t('navbar.english') : t('navbar.french')}
-                </span>
-              ) : (
-                <i className="fas fa-language"></i>
-              )}
-            </Button>
-          </div>
+          <Button 
+            onClick={handleLanguageToggle}
+            variant="ghost"
+            className="flex items-center justify-center w-full p-1"
+            size="sm"
+          >
+            <Languages size={16} />
+            {!isMobile && (
+              <span className="ml-1 text-xs">
+                {language === 'fr' ? 'EN' : 'FR'}
+              </span>
+            )}
+          </Button>
           
-          {/* Theme Toggle */}
           <div className="flex justify-center">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              className="w-9 h-9 rounded-full"
-            >
-              {theme === 'dark' ? (
-                <Sun className="h-4 w-4" />
-              ) : (
-                <Moon className="h-4 w-4" />
-              )}
-              <span className="sr-only">Toggle theme</span>
-            </Button>
+            <ThemeToggle />
           </div>
           
           {/* Social Links */}
