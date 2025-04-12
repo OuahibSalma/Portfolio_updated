@@ -18,7 +18,14 @@ export const useTheme = () => {
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    // Check for user's preference in localStorage
     const savedTheme = localStorage.getItem('theme');
+    
+    // If no preference is saved, check system preference
+    if (!savedTheme) {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    
     return savedTheme === 'dark' ? 'dark' : 'light';
   });
 

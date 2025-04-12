@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
@@ -65,19 +66,19 @@ const Navbar = () => {
       
       <div className={`flex flex-col h-full justify-between py-4 px-2 bg-white dark:bg-gray-800 shadow-md ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-      } transition-transform duration-300 md:translate-x-0 w-48 md:w-48`}>
+      } transition-transform duration-300 md:translate-x-0 w-auto md:w-16`}>
         
         <nav className="flex-1">
-          <ul className="flex flex-col space-y-2 items-start">
+          <ul className="flex flex-col space-y-1 items-start">
             {navItems.map((item) => (
               <li key={item.name} className="w-full">
                 <a 
                   href={item.href} 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 group py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
+                  className="flex items-center gap-2 py-2 px-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full text-gray-800 dark:text-white"
                 >
-                  <item.icon className="text-gray-800 dark:text-white" size={18} />
-                  <span className="text-sm font-medium text-gray-800 dark:text-white">
+                  <item.icon size={16} />
+                  <span className="text-xs md:inline-block">
                     {item.name}
                   </span>
                 </a>
@@ -86,29 +87,29 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        <div className="flex flex-col gap-2 items-start px-3 mt-2">
+        <div className="flex flex-col gap-1 items-start px-2 mt-2">
           <button 
             onClick={handleLanguageToggle}
-            className="flex items-center gap-3 w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
+            className="flex items-center gap-2 w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
             title={language === 'fr' ? 'Switch to English' : 'Passer au français'}
           >
-            <Languages size={18} />
-            <span className="text-sm">
+            <Languages size={16} />
+            <span className="text-xs">
               {language === 'fr' ? 'EN' : 'FR'}
             </span>
           </button>
           
           <button
             onClick={toggleTheme}
-            className="flex items-center gap-3 w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
+            className="flex items-center gap-2 w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
             title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
           >
             {theme === 'dark' ? (
-              <Sun className="h-4 w-4" />
+              <Sun size={16} />
             ) : (
-              <Moon className="h-4 w-4" />
+              <Moon size={16} />
             )}
-            <span className="text-sm">
+            <span className="text-xs">
               {theme === 'dark' ? t('navbar.theme.light') : t('navbar.theme.dark')}
             </span>
           </button>

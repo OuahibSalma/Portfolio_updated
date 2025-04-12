@@ -53,7 +53,7 @@ const Index = () => {
         <div className="min-h-screen flex dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
           <Toaster position="top-right" />
           <Navbar />
-          <div className={`flex-1 ${isMobile ? 'ml-0' : 'ml-16 md:ml-20 lg:ml-24'} bg-gray-50 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300`}>
+          <div className={`flex-1 ${isMobile ? 'ml-0' : 'ml-16'} bg-gray-50 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300`}>
             <Hero />
             <About />
             <Education />

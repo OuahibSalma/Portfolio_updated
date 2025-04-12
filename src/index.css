@@ -34,6 +34,50 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+    
+    --sidebar: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 222.2 84% 4.9%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+  }
+  
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    
+    --sidebar: 240 10% 3.9%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 240 4.9% 83.9%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 0 0% 98%;
   }
 
   body {
@@ -56,12 +100,12 @@
   }
 
   .navbar-link {
-    @apply relative text-gray-700 hover:text-black transition duration-300;
+    @apply relative text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition duration-300;
   }
 
   .navbar-link::after {
     content: '';
-    @apply absolute w-0 h-0.5 bg-black left-0 bottom-0 transition-all duration-300;
+    @apply absolute w-0 h-0.5 bg-black dark:bg-white left-0 bottom-0 transition-all duration-300;
   }
 
   .navbar-link:hover::after {
@@ -78,6 +122,7 @@
   height: 40px;
   object-fit: contain;
   transition: transform 0.3s ease;
+  @apply dark:filter dark:invert;
 }
 
 .competence-icons img:hover {
@@ -85,10 +130,43 @@
 }
 
 .competence-card {
-  @apply bg-white rounded-lg p-4 shadow-md transition-all duration-300;
+  @apply bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md transition-all duration-300;
 }
 
 .competence-card:hover {
-  @apply shadow-lg;
+  @apply shadow-lg dark:shadow-gray-700;
   transform: translateY(-5px);
+}
+
+/* Card styles for dark mode */
+.card-container {
+  @apply bg-white dark:bg-gray-800 shadow-lg dark:shadow-gray-900/30 transition-colors duration-300;
+}
+
+/* Text colors for dark mode */
+.text-content {
+  @apply text-gray-800 dark:text-gray-100;
+}
+
+/* Border colors for dark mode */
+.border-element {
+  @apply border-gray-200 dark:border-gray-700;
+}
+
+/* Input styles for dark mode */
+.form-input {
+  @apply bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 
+         text-gray-900 dark:text-gray-100 focus:ring-blue-500 dark:focus:ring-blue-400;
+}
+
+/* Button styles enhanced for dark mode */
+.primary-button {
+  @apply bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 
+         text-white transition-colors duration-300;
+}
+
+/* Glass morphism for dark mode */
+.glass-card {
+  @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-md 
+         border border-gray-200 dark:border-gray-700 shadow-md;
 }
