@@ -36,14 +36,14 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { name: t('navbar.home'), href: "#home", icon: <Home size={20} /> },
-    { name: t('navbar.about'), href: "#about", icon: <Info size={20} /> },
-    { name: t('navbar.education'), href: "#education", icon: <GraduationCap size={20} /> },
-    { name: t('navbar.projects'), href: "#projects", icon: <PanelLeft size={20} /> },
-    { name: t('navbar.skills'), href: "#skills", icon: <Cpu size={20} /> },
-    { name: t('navbar.experience'), href: "#experience", icon: <Code size={20} /> },
-    { name: t('navbar.activities'), href: "#activities", icon: <Activity size={20} /> },
-    { name: t('navbar.contact'), href: "#contact", icon: <MessageSquare size={20} /> },
+    { name: t('navbar.home'), href: "#home", icon: <Home size={18} /> },
+    { name: t('navbar.about'), href: "#about", icon: <Info size={18} /> },
+    { name: t('navbar.education'), href: "#education", icon: <GraduationCap size={18} /> },
+    { name: t('navbar.projects'), href: "#projects", icon: <PanelLeft size={18} /> },
+    { name: t('navbar.skills'), href: "#skills", icon: <Cpu size={18} /> },
+    { name: t('navbar.experience'), href: "#experience", icon: <Code size={18} /> },
+    { name: t('navbar.activities'), href: "#activities", icon: <Activity size={18} /> },
+    { name: t('navbar.contact'), href: "#contact", icon: <MessageSquare size={18} /> },
   ];
 
   return (
@@ -66,29 +66,27 @@ const Navbar = () => {
       </button>
       
       {/* Sidebar - visible on all screens but adapts for mobile */}
-      <div className={`flex flex-col h-full justify-between py-6 px-3 md:px-4 bg-white dark:bg-gray-800 shadow-md ${
+      <div className={`flex flex-col h-full justify-between py-4 px-3 bg-white dark:bg-gray-800 shadow-md ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-      } transition-transform duration-300 md:translate-x-0 w-16 md:w-20 lg:w-24`}>
+      } transition-transform duration-300 md:translate-x-0 w-16 md:w-16`}>
         
         {/* Navigation */}
-        <nav className="flex-grow">
-          <ul className="flex flex-col space-y-6 items-center mt-8">
+        <nav className="flex-1">
+          <ul className="flex flex-col space-y-4 items-center">
             {navItems.map((item) => (
               <li key={item.name} className="w-full">
                 <a 
                   href={item.href} 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex flex-col items-center justify-center group px-2 py-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
+                  className="flex flex-col items-center justify-center group py-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                   title={item.name}
                 >
-                  <div className="w-8 h-8 flex items-center justify-center rounded-full text-gray-800 dark:text-white">
+                  <div className="text-gray-800 dark:text-white">
                     {item.icon}
                   </div>
-                  {!isMobile && (
-                    <span className="text-xs mt-1 font-medium text-gray-800 dark:text-white text-center">
-                      {item.name}
-                    </span>
-                  )}
+                  <span className="text-xs mt-1 font-medium text-gray-800 dark:text-white text-center">
+                    {item.name}
+                  </span>
                 </a>
               </li>
             ))}
@@ -96,48 +94,34 @@ const Navbar = () => {
         </nav>
 
         {/* Theme and Language Toggles */}
-        <div className="flex flex-col gap-4 items-center">
+        <div className="flex flex-col gap-3 items-center mt-2">
           {/* Language Toggle */}
-          <Button 
+          <button 
             onClick={handleLanguageToggle}
-            variant="outline"
-            className="flex items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
-            size="sm"
+            className="flex flex-col items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
             title={language === 'fr' ? 'Switch to English' : 'Passer au français'}
           >
-            <Languages size={16} className="text-gray-800 dark:text-white" />
-            <span className="ml-1 text-xs text-gray-800 dark:text-white">
+            <Languages size={18} />
+            <span className="text-xs mt-1">
               {language === 'fr' ? 'EN' : 'FR'}
             </span>
-          </Button>
+          </button>
           
           {/* Theme Toggle */}
-          <Button
+          <button
             onClick={toggleTheme}
-            variant="outline"
-            className="flex items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
-            size="sm"
+            className="flex flex-col items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
             title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
           >
             {theme === 'dark' ? (
-              <Sun size={16} className="text-white" />
+              <Sun size={18} />
             ) : (
-              <Moon size={16} className="text-gray-800" />
+              <Moon size={18} />
             )}
-            <span className="ml-1 text-xs text-gray-800 dark:text-white">
+            <span className="text-xs mt-1">
               {theme === 'dark' ? t('navbar.theme.light') : t('navbar.theme.dark')}
             </span>
-          </Button>
-          
-          {/* Social Links */}
-          <div className="flex justify-center space-x-3 mt-2">
-            <a href="https://github.com/OuahibSalma" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-              <i className="fa-brands fa-github text-lg"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/salma-ouahib-140b13242/" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors">
-              <i className="fa-brands fa-linkedin text-lg"></i>
-            </a>
-          </div>
+          </button>
         </div>
       </div>
     </motion.header>

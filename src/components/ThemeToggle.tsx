@@ -2,23 +2,27 @@
 import { Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
+  const { t } = useLanguage();
 
   return (
     <Button
       variant="ghost"
-      size="icon"
+      size="sm"
       onClick={toggleTheme}
-      className="w-9 h-9 rounded-full"
+      className="flex flex-col items-center rounded-md"
     >
       {theme === 'dark' ? (
-        <Sun className="h-4 w-4 rotate-0 scale-100 transition-all" />
+        <Sun className="h-4 w-4" />
       ) : (
-        <Moon className="h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+        <Moon className="h-4 w-4" />
       )}
-      <span className="sr-only">Toggle theme</span>
+      <span className="text-xs mt-1">
+        {theme === 'dark' ? t('navbar.theme.light') : t('navbar.theme.dark')}
+      </span>
     </Button>
   );
 };
