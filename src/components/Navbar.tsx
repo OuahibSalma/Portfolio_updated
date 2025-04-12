@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
   Home, Info, GraduationCap, PanelLeft, 
-  Cpu, Code, Activity, MessageSquare, Languages
+  Cpu, Code, Activity, MessageSquare, Languages,
+  Moon, Sun
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
-import ThemeToggle from "./ThemeToggle";
+import { useTheme } from "../context/ThemeContext";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -14,6 +15,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { language, changeLanguage, t } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -71,7 +73,7 @@ const Navbar = () => {
         <div className="flex flex-col items-center justify-center">
           <a href="#home" className="mb-4">
             <motion.div 
-              className="h-14 w-14 rounded-full bg-pink-200 flex items-center justify-center text-xl font-script"
+              className="h-14 w-14 rounded-full bg-gradient-to-r from-pink-300 to-purple-300 flex items-center justify-center text-xl font-bold text-white"
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.2 }}
             >
@@ -80,7 +82,7 @@ const Navbar = () => {
           </a>
           {!isMobile && (
             <span className="text-xs md:text-sm font-semibold text-gray-800 dark:text-white mb-8 text-center">
-              Ouahib Salma
+              Portfolio
             </span>
           )}
         </div>
@@ -112,23 +114,37 @@ const Navbar = () => {
 
         {/* Theme and Language Toggles */}
         <div className="flex flex-col gap-4 items-center">
+          {/* Language Toggle */}
           <Button 
             onClick={handleLanguageToggle}
             variant="ghost"
-            className="flex items-center justify-center w-full p-1"
+            className="flex items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full"
             size="sm"
+            title={language === 'fr' ? 'Switch to English' : 'Passer au français'}
           >
-            <Languages size={16} />
-            {!isMobile && (
-              <span className="ml-1 text-xs">
-                {language === 'fr' ? 'EN' : 'FR'}
-              </span>
-            )}
+            <Languages size={16} className="text-gray-800 dark:text-white" />
+            <span className="ml-1 text-xs text-gray-800 dark:text-white">
+              {language === 'fr' ? 'EN' : 'FR'}
+            </span>
           </Button>
           
-          <div className="flex justify-center">
-            <ThemeToggle />
-          </div>
+          {/* Theme Toggle */}
+          <Button
+            onClick={toggleTheme}
+            variant="ghost"
+            className="flex items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full"
+            size="sm"
+            title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+          >
+            {theme === 'dark' ? (
+              <Sun size={16} className="text-white" />
+            ) : (
+              <Moon size={16} className="text-gray-800" />
+            )}
+            <span className="ml-1 text-xs text-gray-800 dark:text-white">
+              {theme === 'dark' ? t('navbar.theme.light') : t('navbar.theme.dark')}
+            </span>
+          </Button>
           
           {/* Social Links */}
           <div className="flex justify-center space-x-3 mt-2">
