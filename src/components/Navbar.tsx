@@ -69,27 +69,10 @@ const Navbar = () => {
       <div className={`flex flex-col h-full justify-between py-6 px-3 md:px-4 bg-white dark:bg-gray-800 shadow-md ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
       } transition-transform duration-300 md:translate-x-0 w-16 md:w-20 lg:w-24`}>
-        {/* Logo Section */}
-        <div className="flex flex-col items-center justify-center">
-          <a href="#home" className="mb-4">
-            <motion.div 
-              className="h-14 w-14 rounded-full bg-gradient-to-r from-pink-300 to-purple-300 flex items-center justify-center text-xl font-bold text-white"
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.2 }}
-            >
-              OS
-            </motion.div>
-          </a>
-          {!isMobile && (
-            <span className="text-xs md:text-sm font-semibold text-gray-800 dark:text-white mb-8 text-center">
-              Portfolio
-            </span>
-          )}
-        </div>
-
+        
         {/* Navigation */}
         <nav className="flex-grow">
-          <ul className="flex flex-col space-y-6 items-center">
+          <ul className="flex flex-col space-y-6 items-center mt-8">
             {navItems.map((item) => (
               <li key={item.name} className="w-full">
                 <a 
@@ -117,8 +100,8 @@ const Navbar = () => {
           {/* Language Toggle */}
           <Button 
             onClick={handleLanguageToggle}
-            variant="ghost"
-            className="flex items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full"
+            variant="outline"
+            className="flex items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
             size="sm"
             title={language === 'fr' ? 'Switch to English' : 'Passer au français'}
           >
@@ -131,8 +114,8 @@ const Navbar = () => {
           {/* Theme Toggle */}
           <Button
             onClick={toggleTheme}
-            variant="ghost"
-            className="flex items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full"
+            variant="outline"
+            className="flex items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md"
             size="sm"
             title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
           >
