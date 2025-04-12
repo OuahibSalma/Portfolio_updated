@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { 
   Home, Info, GraduationCap, PanelLeft, 
   Cpu, Code, Activity, MessageSquare, Languages,
-  Moon, Sun
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
@@ -36,14 +35,14 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { name: t('navbar.home'), href: "#home", icon: <Home size={18} /> },
-    { name: t('navbar.about'), href: "#about", icon: <Info size={18} /> },
-    { name: t('navbar.education'), href: "#education", icon: <GraduationCap size={18} /> },
-    { name: t('navbar.projects'), href: "#projects", icon: <PanelLeft size={18} /> },
-    { name: t('navbar.skills'), href: "#skills", icon: <Cpu size={18} /> },
-    { name: t('navbar.experience'), href: "#experience", icon: <Code size={18} /> },
-    { name: t('navbar.activities'), href: "#activities", icon: <Activity size={18} /> },
-    { name: t('navbar.contact'), href: "#contact", icon: <MessageSquare size={18} /> },
+    { name: t('navbar.home'), href: "#home", icon: Home },
+    { name: t('navbar.about'), href: "#about", icon: Info },
+    { name: t('navbar.education'), href: "#education", icon: GraduationCap },
+    { name: t('navbar.projects'), href: "#projects", icon: PanelLeft },
+    { name: t('navbar.skills'), href: "#skills", icon: Cpu },
+    { name: t('navbar.experience'), href: "#experience", icon: Code },
+    { name: t('navbar.activities'), href: "#activities", icon: Activity },
+    { name: t('navbar.contact'), href: "#contact", icon: MessageSquare },
   ];
 
   return (
@@ -66,25 +65,22 @@ const Navbar = () => {
       </button>
       
       {/* Sidebar - visible on all screens but adapts for mobile */}
-      <div className={`flex flex-col h-full justify-between py-4 px-3 bg-white dark:bg-gray-800 shadow-md ${
+      <div className={`flex flex-col h-full justify-between py-4 px-2 bg-white dark:bg-gray-800 shadow-md ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-      } transition-transform duration-300 md:translate-x-0 w-16 md:w-16`}>
+      } transition-transform duration-300 md:translate-x-0 w-48 md:w-48`}>
         
         {/* Navigation */}
         <nav className="flex-1">
-          <ul className="flex flex-col space-y-4 items-center">
+          <ul className="flex flex-col space-y-2 items-start">
             {navItems.map((item) => (
               <li key={item.name} className="w-full">
                 <a 
                   href={item.href} 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex flex-col items-center justify-center group py-1 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
-                  title={item.name}
+                  className="flex items-center gap-3 group py-2 px-3 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full"
                 >
-                  <div className="text-gray-800 dark:text-white">
-                    {item.icon}
-                  </div>
-                  <span className="text-xs mt-1 font-medium text-gray-800 dark:text-white text-center">
+                  <item.icon className="text-gray-800 dark:text-white" size={18} />
+                  <span className="text-sm font-medium text-gray-800 dark:text-white">
                     {item.name}
                   </span>
                 </a>
@@ -94,15 +90,15 @@ const Navbar = () => {
         </nav>
 
         {/* Theme and Language Toggles */}
-        <div className="flex flex-col gap-3 items-center mt-2">
+        <div className="flex flex-col gap-2 items-start px-3 mt-2">
           {/* Language Toggle */}
           <button 
             onClick={handleLanguageToggle}
-            className="flex flex-col items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
+            className="flex items-center gap-3 w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
             title={language === 'fr' ? 'Switch to English' : 'Passer au français'}
           >
             <Languages size={18} />
-            <span className="text-xs mt-1">
+            <span className="text-sm">
               {language === 'fr' ? 'EN' : 'FR'}
             </span>
           </button>
@@ -110,7 +106,7 @@ const Navbar = () => {
           {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
-            className="flex flex-col items-center justify-center w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
+            className="flex items-center gap-3 w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
             title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
           >
             {theme === 'dark' ? (
@@ -118,7 +114,7 @@ const Navbar = () => {
             ) : (
               <Moon size={18} />
             )}
-            <span className="text-xs mt-1">
+            <span className="text-sm">
               {theme === 'dark' ? t('navbar.theme.light') : t('navbar.theme.dark')}
             </span>
           </button>
