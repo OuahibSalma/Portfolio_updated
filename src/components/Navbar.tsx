@@ -1,9 +1,9 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
   Home, Info, GraduationCap, PanelLeft, 
   Cpu, Code, Activity, MessageSquare, Languages,
+  Sun, Moon
 } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 import { useTheme } from "../context/ThemeContext";
@@ -54,7 +54,6 @@ const Navbar = () => {
       animate={{ x: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Mobile menu toggle button - only visible on small screens */}
       <button 
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-white dark:bg-gray-800 shadow-md"
@@ -64,12 +63,10 @@ const Navbar = () => {
         <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200"></div>
       </button>
       
-      {/* Sidebar - visible on all screens but adapts for mobile */}
       <div className={`flex flex-col h-full justify-between py-4 px-2 bg-white dark:bg-gray-800 shadow-md ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
       } transition-transform duration-300 md:translate-x-0 w-48 md:w-48`}>
         
-        {/* Navigation */}
         <nav className="flex-1">
           <ul className="flex flex-col space-y-2 items-start">
             {navItems.map((item) => (
@@ -89,9 +86,7 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        {/* Theme and Language Toggles */}
         <div className="flex flex-col gap-2 items-start px-3 mt-2">
-          {/* Language Toggle */}
           <button 
             onClick={handleLanguageToggle}
             className="flex items-center gap-3 w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
@@ -103,16 +98,15 @@ const Navbar = () => {
             </span>
           </button>
           
-          {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             className="flex items-center gap-3 w-full p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
             title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
           >
             {theme === 'dark' ? (
-              <Sun size={18} />
+              <Sun className="h-4 w-4" />
             ) : (
-              <Moon size={18} />
+              <Moon className="h-4 w-4" />
             )}
             <span className="text-sm">
               {theme === 'dark' ? t('navbar.theme.light') : t('navbar.theme.dark')}
