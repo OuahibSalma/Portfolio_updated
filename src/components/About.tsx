@@ -38,12 +38,12 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-6">
             <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-semibold mb-4 text-purple-600 dark:text-purple-400">Qui suis-je</h3>
+              <h3 className="text-xl font-semibold mb-4 text-purple-600 dark:text-purple-400">{t('hero.title')}</h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Je m'appelle Ouahib Salma, étudiante en deuxième année d'ingénierie à l'École Nationale Supérieure d'Informatique et d'Analyse des Systèmes (ENSIAS), filière Business Intelligence and Data Analytics. J'ai obtenu une licence en Sciences Mathématiques et Informatique (SMI) à la Faculté des Sciences Semlalia Marrakech (FSSM).
+                {t('hero.intro1')}
               </p>
               <p className="text-gray-700 dark:text-gray-300">
-                Passionnée par l'ingénierie, la Data Analytics, la Business Intelligence, le Data Engineering et l'Analytics, ma mission est de transformer les données brutes en chefs-d'œuvre stratégiques permettant de prendre des décisions informées et de créer une valeur ajoutée au sein d'une entreprise.
+                {t('hero.intro2')}
               </p>
             </div>
             
@@ -72,17 +72,17 @@ const About = () => {
           
           <div className="flex flex-col space-y-6">
             <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow-sm h-full">
-              <h3 className="text-xl font-semibold mb-6 text-purple-600 dark:text-purple-400">Profil Professionnel</h3>
+              <h3 className="text-xl font-semibold mb-6 text-purple-600 dark:text-purple-400">{t('about.title')}</h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Analyste de données en formation avec une passion pour transformer des données complexes en informations exploitables. Je combine des compétences analytiques solides avec des connaissances techniques en science des données pour développer des solutions qui aident les organisations à prendre des décisions éclairées.
+                {t('hero.intro1')}
               </p>
               <p className="text-gray-700 dark:text-gray-300">
-                Mon expérience en alternance et en stage m'a permis de développer des compétences pratiques dans l'analyse prédictive, la visualisation des données et l'automatisation des processus d'extraction de données.
+                {t('hero.intro2')}
               </p>
             </div>
             
             <div className="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-semibold mb-4 text-purple-600 dark:text-purple-400">Liens</h3>
+              <h3 className="text-xl font-semibold mb-4 text-purple-600 dark:text-purple-400">{t('contact.methods')}</h3>
               <div className="flex space-x-4">
                 <a 
                   href="https://github.com/OuahibSalma" 
@@ -109,19 +109,19 @@ const About = () => {
               </div>
               
               <div className="mt-4">
-                <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Télécharger mon CV:</h4>
+                <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">{t('hero.frenchCV')}:</h4>
                 <div className="flex flex-wrap gap-2">
                   <a 
                     href="#" 
                     className="inline-flex items-center px-3 py-1.5 bg-purple-100 text-purple-700 text-xs rounded-full hover:bg-purple-200 transition dark:bg-purple-900 dark:text-purple-200 dark:hover:bg-purple-800"
                   >
-                    <i className="fa-solid fa-file-pdf mr-1"></i> CV Français
+                    <i className="fa-solid fa-file-pdf mr-1"></i> {t('hero.frenchCV')}
                   </a>
                   <a 
                     href="#" 
                     className="inline-flex items-center px-3 py-1.5 bg-purple-100 text-purple-700 text-xs rounded-full hover:bg-purple-200 transition dark:bg-purple-900 dark:text-purple-200 dark:hover:bg-purple-800"
                   >
-                    <i className="fa-solid fa-file-pdf mr-1"></i> CV Anglais
+                    <i className="fa-solid fa-file-pdf mr-1"></i> {t('hero.englishCV')}
                   </a>
                 </div>
               </div>

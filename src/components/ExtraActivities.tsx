@@ -1,21 +1,24 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ExtraActivities = () => {
+  const { t } = useLanguage();
+  
   const activities = [
     {
       id: 1,
-      title: "Club CINDH",
-      role: "Responsable Spam, membre cellule dons et sponsoring",
-      description: "Le Club d'Initiation Nationale au Développement Humain offre une opportunité enrichissante de s'engager dans des actions solidaires. En tant que membre, j'ai le privilège de participer à des activités bénéfiques pour la communauté, notamment auprès des enfants, ce qui est source de grande satisfaction personnelle.",
+      title: t('extraActivities.cindh'),
+      role: t('extraActivities.cindhRole'),
+      description: t('extraActivities.cindhText'),
       image: "https://images.unsplash.com/photo-1526976668912-1a811878dd37?q=80"
     },
     {
       id: 2,
-      title: "Bénévolat",
-      role: "Organisation d'événements caritatifs",
-      description: "Participation à l'organisation d'événements de collecte de fonds pour soutenir l'éducation des enfants défavorisés. Ces activités m'ont permis de développer des compétences en gestion de projets et en communication.",
+      title: t('navbar.activities'),
+      role: t('extraActivities.cindhRole'),
+      description: t('extraActivities.cindhText'),
       image: "https://images.unsplash.com/photo-1469406396016-013bfae5d83e?q=80"
     }
   ];
@@ -23,7 +26,7 @@ const ExtraActivities = () => {
   return (
     <section id="activities" className="section-padding bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto reveal">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Activités Extra-scolaires</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">{t('extraActivities.title')}</h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {activities.map((activity, index) => (
@@ -52,12 +55,9 @@ const ExtraActivities = () => {
         </div>
         
         <div className="mt-12 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm dark:shadow-gray-900/30 max-w-3xl mx-auto">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Pourquoi l'extra-scolaire ?</h3>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">{t('extraActivities.why')}</h3>
           <p className="text-gray-700 dark:text-gray-300">
-            L'engagement dans des activités extrascolaires enrichit considérablement le profil d'un étudiant, démontrant 
-            polyvalence, initiative et compétences pratiques. Ces expériences, qu'elles soient bénévoles, associatives ou 
-            créatives, témoignent d'une personnalité équilibrée et proactive, atouts majeurs aux yeux des recruteurs et dans le 
-            développement personnel.
+            {t('extraActivities.whyText')}
           </p>
         </div>
       </div>
