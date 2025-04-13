@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Github, FileText } from "lucide-react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { useLanguage } from "../context/LanguageContext";
 import projects from "../data/projects";
 import type { Project } from "../data/projects";
@@ -11,7 +11,7 @@ const Projects = () => {
   const projectsRef = useRef<HTMLDivElement>(null);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [open, setOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,6 +42,22 @@ const Projects = () => {
     setOpen(true);
   };
 
+  const getLocalizedProjectTitle = (project: Project) => {
+    return language === 'en' && project.titleEn ? project.titleEn : project.title;
+  };
+
+  const getLocalizedProjectDescription = (project: Project) => {
+    return language === 'en' && project.descriptionEn ? project.descriptionEn : project.description;
+  };
+
+  const getLocalizedProjectObjective = (project: Project) => {
+    return language === 'en' && project.objectiveEn ? project.objectiveEn : project.objective;
+  };
+
+  const getLocalizedProjectLongDescription = (project: Project) => {
+    return language === 'en' && project.longDescriptionEn ? project.longDescriptionEn : project.longDescription;
+  };
+
   return (
     <section id="projects" className="section-padding bg-gray-50 dark:bg-gray-900 py-20 px-6">
       <div className="container mx-auto" ref={projectsRef}>
@@ -60,13 +76,17 @@ const Projects = () => {
               <div className="h-48 overflow-hidden">
                 <img 
                   src={project.image} 
-                  alt={project.title} 
+                  alt={getLocalizedProjectTitle(project)} 
                   className="w-full h-full object-cover object-center hover:scale-110 transition-transform duration-300"
                 />
               </div>
               <div className="p-6 dark:text-white">
-                <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white line-clamp-2">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{project.description}</p>
+                <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white line-clamp-2">
+                  {getLocalizedProjectTitle(project)}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
+                  {getLocalizedProjectDescription(project)}
+                </p>
                 <div className="flex items-center justify-between">
                   <div className="flex space-x-3">
                     {project.githubLink && (
@@ -108,12 +128,12 @@ const Projects = () => {
         {selectedProject && (
           <DialogContent className="sm:max-w-[600px] bg-white dark:bg-gray-800 dark:text-white">
             <DialogHeader>
-              <DialogTitle className="text-2xl">{selectedProject.title}</DialogTitle>
+              <DialogTitle className="text-2xl">{getLocalizedProjectTitle(selectedProject)}</DialogTitle>
             </DialogHeader>
             <div className="grid gap-4 py-4">
               <div className="grid grid-cols-4 items-center gap-4">
                 <span className="font-medium text-right text-gray-700 dark:text-gray-300">{t('projects.purpose')}</span>
-                <span className="col-span-3 dark:text-white">{selectedProject.objective}</span>
+                <span className="col-span-3 dark:text-white">{getLocalizedProjectObjective(selectedProject)}</span>
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
                 <span className="font-medium text-right text-gray-700 dark:text-gray-300">{t('projects.duration')}</span>
@@ -125,7 +145,7 @@ const Projects = () => {
               </div>
               <div className="grid grid-cols-4 items-start gap-4">
                 <span className="font-medium text-right text-gray-700 dark:text-gray-300">{t('projects.description')}</span>
-                <p className="col-span-3 dark:text-white">{selectedProject.longDescription}</p>
+                <p className="col-span-3 dark:text-white">{getLocalizedProjectLongDescription(selectedProject)}</p>
               </div>
               <div className="flex justify-end space-x-3 mt-4">
                 {selectedProject.githubLink && (
@@ -145,7 +165,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-3 py-2 bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-100 rounded hover:bg-purple-200 dark:hover:bg-purple-800 transition"
                   >
-                    <FileText className="mr-2" size={16} /> Rapport PDF
+                    <FileText className="mr-2" size={16} /> {t('projects.pdfReport')}
                   </a>
                 )}
               </div>

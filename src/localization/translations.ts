@@ -1,4 +1,3 @@
-
 export const translations = {
   fr: {
     navbar: {
@@ -75,6 +74,7 @@ export const translations = {
         skills: "Modélisation en utilisant UML, graphique avec l'outil Tiled, et la bibliothèque pygame de python.",
         description: "C'est mon projet de fin d'études de licence dans lequel on a implémenté les différents diagrammes de l'UML pour réaliser l'étape de la conception, dessiner les différents niveaux de jeu en implémentant Tiled. Et finalement, coder en Python, en utilisant la bibliothèque Pygame."
       },
+      pdfReport: "Rapport PDF",
       details: "Détails du projet",
       purpose: "But:",
       duration: "Durée:",
@@ -96,13 +96,17 @@ export const translations = {
       advice: "Conseil :",
       adviceText: "LinkedIn s'avère être un outil incontournable pour les étudiants en quête de stages, offrant une plateforme idéale pour établir un réseau professionnel solide. En parallèle, cultiver des relations positives avec vos professeurs peut ouvrir de nombreuses portes.",
       importance: "L'expérience professionnelle est important que les compétences",
-      importanceText: "L'expérience professionnelle forge des compétences pratiques essentielles : résolution de problèmes réels, travail d'équipe et adaptabilité. Contrairement aux compétences théoriques, elle démontre la capacité à appliquer ses connaissances et à apprendre de nouvelles technologies pour résoudre des problèmes concrets, ce qui est très valorisé par les employeurs."
+      importanceText: "L'expérience professionnelle forge des compétences pratiques essentielles : résolution de problèmes réels, travail d'équipe et adaptabilité. Contrairement aux compétences théoriques, elle démontre la capacité à appliquer ses connaissances et à apprendre de nouvelles technologies pour résoudre des problèmes concrets, ce qui est très valorisé par les employeurs.",
+      skillsDeveloped: "Compétences développées"
     },
     extraActivities: {
       title: "Expérience Extra scolaire :",
       cindh: "Club CINDH",
       cindhRole: "Responsable Spam, membre cellule dons et sponsoring",
-      cindhText: "Le Club d'Initiation Nationale au Développement Humain offre une opportunité enrichissante de s'engager dans des actions solidaires. En tant que membre, j'ai le privilège de participer à des activités bénéfiques pour la communauté, notamment auprès des enfants, ce qui est source de grande satisfaction personnelle. Au sein de la cellule sponsoring, nous développons des compétences précieuses en communication et négociation. Cette expérience m'a profondément marqué, renfor��ant ma conviction qu'il est essentiel de tendre la main à ceux dans le besoin, contribuant ainsi à créer une société plus solidaire et empathique.",
+      cindhText: "Le Club d'Initiation Nationale au Développement Humain offre une opportunité enrichissante de s'engager dans des actions solidaires. En tant que membre, j'ai le privilège de participer à des activités bénéfiques pour la communauté, notamment auprès des enfants, ce qui est source de grande satisfaction personnelle. Au sein de la cellule sponsoring, nous développons des compétences précieuses en communication et négociation. Cette expérience m'a profondément marqué, renforçant ma conviction qu'il est essentiel de tendre la main à ceux dans le besoin, contribuant ainsi à créer une société plus solidaire et empathique.",
+      activity2: "Activités Volontaires",
+      activity2Role: "Membre actif",
+      activity2Text: "Participation à diverses activités volontaires et caritatives pour aider les communautés locales et développer mes compétences en leadership et en travail d'équipe.",
       why: "Pourqoui l'Extra scolaire :",
       whyText: "L'engagement dans des activités extrascolaires enrichit considérablement le profil d'un étudiant, démontrant polyvalence, initiative et compétences pratiques. Ces expériences, qu'elles soient bénévoles, associatives ou créatives, témoignent d'une personnalité équilibrée et proactive, atouts majeurs aux yeux des recruteurs et dans le développement personnel."
     },
@@ -132,6 +136,11 @@ export const translations = {
       message: "Message",
       send: "Envoyez-moi un message",
       thanks: "Merci pour votre message"
+    },
+    footer: {
+      description: "Étudiante en Business Intelligence and Data Analytics, passionnée par la transformation de données brutes en chefs-d'œuvre stratégiques.",
+      quickLinks: "Liens Rapides",
+      rights: "Tous droits réservés."
     }
   },
   en: {
@@ -209,6 +218,7 @@ export const translations = {
         skills: "Modeling using UML, graphics with the Tiled tool, and the Pygame python library.",
         description: "This is my bachelor's degree final project in which we implemented the different UML diagrams to carry out the design stage, draw the different game levels using Tiled. And finally, code in Python, using the Pygame library."
       },
+      pdfReport: "PDF Report",
       details: "Project details",
       purpose: "Purpose:",
       duration: "Duration:",
@@ -230,13 +240,17 @@ export const translations = {
       advice: "Advice:",
       adviceText: "LinkedIn proves to be an essential tool for students seeking internships, offering an ideal platform to establish a solid professional network. In parallel, cultivating positive relationships with your professors can open many doors.",
       importance: "Professional experience is more important than skills",
-      importanceText: "Professional experience forges essential practical skills: solving real problems, teamwork, and adaptability. Unlike theoretical skills, it demonstrates the ability to apply one's knowledge and learn new technologies to solve concrete problems, which is highly valued by employers."
+      importanceText: "Professional experience forges essential practical skills: solving real problems, teamwork, and adaptability. Unlike theoretical skills, it demonstrates the ability to apply one's knowledge and learn new technologies to solve concrete problems, which is highly valued by employers.",
+      skillsDeveloped: "Skills developed"
     },
     extraActivities: {
       title: "Extracurricular Experience:",
       cindh: "CINDH Club",
       cindhRole: "Spam Manager, member of the donations and sponsorship cell",
       cindhText: "The National Human Development Initiation Club offers an enriching opportunity to engage in solidarity actions. As a member, I have the privilege of participating in activities that benefit the community, particularly with children, which is a source of great personal satisfaction. Within the sponsorship cell, we develop valuable communication and negotiation skills. This experience has deeply marked me, strengthening my conviction that it is essential to reach out to those in need, thereby contributing to creating a more supportive and empathetic society.",
+      activity2: "Voluntary Activities",
+      activity2Role: "Active member",
+      activity2Text: "Participation in various voluntary and charitable activities to help local communities and develop my leadership and teamwork skills.",
       why: "Why Extracurricular Activities:",
       whyText: "Engagement in extracurricular activities considerably enriches a student's profile, demonstrating versatility, initiative, and practical skills. These experiences, whether voluntary, associative, or creative, testify to a balanced and proactive personality, major assets in the eyes of recruiters and for personal development."
     },
@@ -266,6 +280,11 @@ export const translations = {
       message: "Message",
       send: "Send me a message",
       thanks: "Thank you for your message"
+    },
+    footer: {
+      description: "Student in Business Intelligence and Data Analytics, passionate about transforming raw data into strategic masterpieces.",
+      quickLinks: "Quick Links",
+      rights: "All rights reserved."
     }
   }
 };

@@ -16,9 +16,9 @@ const ExtraActivities = () => {
     },
     {
       id: 2,
-      title: t('navbar.activities'),
-      role: t('extraActivities.cindhRole'),
-      description: t('extraActivities.cindhText'),
+      title: t('extraActivities.activity2'),
+      role: t('extraActivities.activity2Role'),
+      description: t('extraActivities.activity2Text'),
       image: "https://images.unsplash.com/photo-1469406396016-013bfae5d83e?q=80"
     }
   ];

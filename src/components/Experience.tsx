@@ -8,7 +8,7 @@ import { useLanguage } from "../context/LanguageContext";
 import experiences from "../data/experiences";
 
 const Experience = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeExperience, setActiveExperience] = useState(experiences[0]);
 
   return (
@@ -29,8 +29,12 @@ const Experience = () => {
                     : "bg-gray-50 hover:bg-purple-50 dark:bg-gray-700 dark:hover:bg-gray-600"
                 }`}
               >
-                <h3 className="font-medium text-lg dark:text-white">{exp.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{exp.company}</p>
+                <h3 className="font-medium text-lg dark:text-white">
+                  {language === 'en' && exp.titleEn ? exp.titleEn : exp.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {language === 'en' && exp.companyEn ? exp.companyEn : exp.company}
+                </p>
                 <p className="text-sm text-gray-500 dark:text-gray-400">{exp.period}</p>
               </button>
             ))}
@@ -47,11 +51,23 @@ const Experience = () => {
             <Card className="p-6 shadow-md h-full dark:bg-gray-700">
               <div className="flex flex-col h-full">
                 <div className="mb-4">
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white">{activeExperience.title}</h3>
+                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white">
+                    {language === 'en' && activeExperience.titleEn 
+                      ? activeExperience.titleEn 
+                      : activeExperience.title}
+                  </h3>
                   <div className="flex items-center text-gray-600 dark:text-gray-300 mt-1 space-x-2">
-                    <span>{activeExperience.company}</span>
+                    <span>
+                      {language === 'en' && activeExperience.companyEn 
+                        ? activeExperience.companyEn 
+                        : activeExperience.company}
+                    </span>
                     <span>•</span>
-                    <span>{activeExperience.location}</span>
+                    <span>
+                      {language === 'en' && activeExperience.locationEn 
+                        ? activeExperience.locationEn 
+                        : activeExperience.location}
+                    </span>
                   </div>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{activeExperience.period}</p>
                 </div>
@@ -59,10 +75,16 @@ const Experience = () => {
                 <Separator className="my-4" />
                 
                 <div className="flex-grow">
-                  <p className="text-gray-700 mb-6 dark:text-gray-300">{activeExperience.description}</p>
+                  <p className="text-gray-700 mb-6 dark:text-gray-300">
+                    {language === 'en' && activeExperience.descriptionEn 
+                      ? activeExperience.descriptionEn 
+                      : activeExperience.description}
+                  </p>
                   
                   <div className="mt-auto">
-                    <h4 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Compétences développées :</h4>
+                    <h4 className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">
+                      {t('experience.skillsDeveloped')}:
+                    </h4>
                     <div className="flex flex-wrap gap-2">
                       {activeExperience.skills.map((skill, index) => (
                         <Badge key={index} variant="outline" className="bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-900 dark:text-purple-200 dark:border-purple-700">
