@@ -21,9 +21,9 @@ const ExtraActivities = () => {
   ];
 
   return (
-    <section id="activities" className="section-padding bg-gradient-to-b from-white to-gray-50">
+    <section id="activities" className="section-padding bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
       <div className="container mx-auto reveal">
-        <h2 className="text-3xl font-bold text-center mb-12">Activités Extra-scolaires</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">Activités Extra-scolaires</h2>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {activities.map((activity, index) => (
@@ -33,7 +33,7 @@ const ExtraActivities = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              <Card className="overflow-hidden h-full shadow-md hover:shadow-lg transition-shadow">
+              <Card className="overflow-hidden h-full shadow-md hover:shadow-lg transition-shadow dark:bg-gray-800 dark:border-gray-700">
                 <div className="h-48 overflow-hidden">
                   <img 
                     src={activity.image} 
@@ -42,18 +42,18 @@ const ExtraActivities = () => {
                   />
                 </div>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-1">{activity.title}</h3>
-                  <p className="text-purple-600 text-sm mb-4">{activity.role}</p>
-                  <p className="text-gray-600">{activity.description}</p>
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-1">{activity.title}</h3>
+                  <p className="text-purple-600 dark:text-purple-400 text-sm mb-4">{activity.role}</p>
+                  <p className="text-gray-600 dark:text-gray-300">{activity.description}</p>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
         
-        <div className="mt-12 bg-white p-6 rounded-lg shadow-sm max-w-3xl mx-auto">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Pourquoi l'extra-scolaire ?</h3>
-          <p className="text-gray-700">
+        <div className="mt-12 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm dark:shadow-gray-900/30 max-w-3xl mx-auto">
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">Pourquoi l'extra-scolaire ?</h3>
+          <p className="text-gray-700 dark:text-gray-300">
             L'engagement dans des activités extrascolaires enrichit considérablement le profil d'un étudiant, démontrant 
             polyvalence, initiative et compétences pratiques. Ces expériences, qu'elles soient bénévoles, associatives ou 
             créatives, témoignent d'une personnalité équilibrée et proactive, atouts majeurs aux yeux des recruteurs et dans le 
