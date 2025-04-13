@@ -58,6 +58,10 @@ const Projects = () => {
     return language === 'en' && project.longDescriptionEn ? project.longDescriptionEn : project.longDescription;
   };
 
+  const getLocalizedProjectPeriod = (project: Project) => {
+    return language === 'en' && project.periodEn ? project.periodEn : project.period;
+  };
+
   return (
     <section id="projects" className="section-padding bg-gray-50 dark:bg-gray-900 py-20 px-6">
       <div className="container mx-auto" ref={projectsRef}>
@@ -137,7 +141,7 @@ const Projects = () => {
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
                 <span className="font-medium text-right text-gray-700 dark:text-gray-300">{t('projects.duration')}</span>
-                <span className="col-span-3 dark:text-white">{selectedProject.period}</span>
+                <span className="col-span-3 dark:text-white">{getLocalizedProjectPeriod(selectedProject)}</span>
               </div>
               <div className="grid grid-cols-4 items-center gap-4">
                 <span className="font-medium text-right text-gray-700 dark:text-gray-300">{t('projects.skills')}</span>
@@ -178,3 +182,4 @@ const Projects = () => {
 };
 
 export default Projects;
+
