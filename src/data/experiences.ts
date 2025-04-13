@@ -45,10 +45,10 @@ const experiences: Experience[] = [
     title: "Scientifique de données - Machine Learning",
     titleEn: "Data Scientist - Machine Learning",
     company: "Faculté des sciences de Marrakech",
-    companyEn: "Faculty of Sciences of Marrakech",
+    companyEn: "Faculty of Sciences of Marrakesh",
     period: "Juillet 2022 - Août 2022",
     location: "Marrakech, Maroc",
-    locationEn: "Marrakech, Morocco",
+    locationEn: "Marrakesh, Morocco",
     description: "Exploration de diverses bibliothèques d'intelligence artificielle et mise en œuvre de la bibliothèque TensorFlow pour la détection de la violence.",
     descriptionEn: "Exploration of various artificial intelligence libraries and implementation of the TensorFlow library for violence detection.",
     skills: ["Python", "TensorFlow", "Machine Learning"]
