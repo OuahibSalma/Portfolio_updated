@@ -66,7 +66,7 @@ const Navbar = () => {
       
       <div className={`flex flex-col h-full justify-between py-4 px-2 bg-white dark:bg-gray-800 shadow-md ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-      } transition-transform duration-300 md:translate-x-0 w-auto md:w-16`}>
+      } transition-transform duration-300 md:translate-x-0 w-auto md:w-16 lg:w-48`}> {/* Ajout de lg:w-48 pour plus de largeur */}
         
         <nav className="flex-1">
           <ul className="flex flex-col space-y-1 items-start">
@@ -78,7 +78,7 @@ const Navbar = () => {
                   className="flex items-center gap-2 py-2 px-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full text-gray-800 dark:text-white"
                 >
                   <item.icon size={16} />
-                  <span className="text-xs md:inline-block">
+                  <span className="text-xs md:text-sm lg:inline-block">
                     {item.name}
                   </span>
                 </a>
@@ -120,3 +120,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
