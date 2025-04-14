@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { 
@@ -56,8 +55,8 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <div className={`flex flex-col h-full justify-between py-4 px-2 bg-white dark:bg-gray-800 shadow-md ${
-        mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-      } transition-transform duration-300 md:translate-x-0 w-auto md:w-16 lg:w-48`}>
+        isMobile && !mobileMenuOpen ? '-translate-x-full' : 'translate-x-0'
+      } transition-transform duration-300 w-auto md:w-16 lg:w-48`}>
         
         <nav className="flex-1">
           <ul className="flex flex-col space-y-1 items-start">
@@ -106,29 +105,6 @@ const Navbar = () => {
           </button>
         </div>
       </div>
-      
-      {/* Mobile menu button - only visible when closed */}
-      {!mobileMenuOpen && (
-        <button 
-          onClick={() => setMobileMenuOpen(true)}
-          className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-white dark:bg-gray-800 shadow-md"
-        >
-          <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 mb-1.5"></div>
-          <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 mb-1.5"></div>
-          <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200"></div>
-        </button>
-      )}
-      
-      {/* Mobile menu close button - only visible when open */}
-      {mobileMenuOpen && (
-        <button 
-          onClick={() => setMobileMenuOpen(false)}
-          className="md:hidden fixed top-4 right-4 z-50 p-2 rounded-md bg-white dark:bg-gray-800 shadow-md"
-        >
-          <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 transform rotate-45 absolute"></div>
-          <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 transform -rotate-45 absolute"></div>
-        </button>
-      )}
     </motion.header>
   );
 };
