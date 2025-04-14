@@ -55,18 +55,9 @@ const Navbar = () => {
       animate={{ x: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <button 
-        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-white dark:bg-gray-800 shadow-md"
-      >
-        <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 mb-1.5"></div>
-        <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 mb-1.5"></div>
-        <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200"></div>
-      </button>
-      
       <div className={`flex flex-col h-full justify-between py-4 px-2 bg-white dark:bg-gray-800 shadow-md ${
         mobileMenuOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'
-      } transition-transform duration-300 md:translate-x-0 w-auto md:w-16 lg:w-48`}> {/* Ajout de lg:w-48 pour plus de largeur */}
+      } transition-transform duration-300 md:translate-x-0 w-auto md:w-16 lg:w-48`}>
         
         <nav className="flex-1">
           <ul className="flex flex-col space-y-1 items-start">
@@ -77,8 +68,8 @@ const Navbar = () => {
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center gap-2 py-2 px-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full text-gray-800 dark:text-white"
                 >
-                  <item.icon size={16} />
-                  <span className="text-xs md:text-sm lg:inline-block">
+                  <item.icon size={20} />
+                  <span className="hidden md:hidden lg:inline-block">
                     {item.name}
                   </span>
                 </a>
@@ -93,8 +84,8 @@ const Navbar = () => {
             className="flex items-center gap-2 w-full p-1 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md text-gray-800 dark:text-white"
             title={language === 'fr' ? 'Switch to English' : 'Passer au français'}
           >
-            <Languages size={16} />
-            <span className="text-xs">
+            <Languages size={20} />
+            <span className="hidden lg:inline-block">
               {language === 'fr' ? 'EN' : 'FR'}
             </span>
           </button>
@@ -105,19 +96,41 @@ const Navbar = () => {
             title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
           >
             {theme === 'dark' ? (
-              <Sun size={16} />
+              <Sun size={20} />
             ) : (
-              <Moon size={16} />
+              <Moon size={20} />
             )}
-            <span className="text-xs">
+            <span className="hidden lg:inline-block">
               {theme === 'dark' ? t('navbar.theme.light') : t('navbar.theme.dark')}
             </span>
           </button>
         </div>
       </div>
+      
+      {/* Mobile menu button - only visible when closed */}
+      {!mobileMenuOpen && (
+        <button 
+          onClick={() => setMobileMenuOpen(true)}
+          className="md:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-white dark:bg-gray-800 shadow-md"
+        >
+          <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 mb-1.5"></div>
+          <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 mb-1.5"></div>
+          <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200"></div>
+        </button>
+      )}
+      
+      {/* Mobile menu close button - only visible when open */}
+      {mobileMenuOpen && (
+        <button 
+          onClick={() => setMobileMenuOpen(false)}
+          className="md:hidden fixed top-4 right-4 z-50 p-2 rounded-md bg-white dark:bg-gray-800 shadow-md"
+        >
+          <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 transform rotate-45 absolute"></div>
+          <div className="w-6 h-0.5 bg-gray-800 dark:bg-gray-200 transform -rotate-45 absolute"></div>
+        </button>
+      )}
     </motion.header>
   );
 };
 
 export default Navbar;
-
