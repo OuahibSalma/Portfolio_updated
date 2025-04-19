@@ -12,14 +12,14 @@ const ExtraActivities = () => {
       title: t('extraActivities.cindh'),
       role: t('extraActivities.cindhRole'),
       description: t('extraActivities.cindhText'),
-      image: "https://images.unsplash.com/photo-1526976668912-1a811878dd37?q=80"
+      image: "/public/Images/Convoi_2025.jpg"
     },
     {
       id: 2,
       title: t('extraActivities.activity2'),
       role: t('extraActivities.activity2Role'),
       description: t('extraActivities.activity2Text'),
-      image: "https://images.unsplash.com/photo-1469406396016-013bfae5d83e?q=80"
+      image: "/public/Images/CINDH.png"
     }
   ];
 

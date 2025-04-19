@@ -12,7 +12,7 @@ const Footer = () => {
           <div className="mb-8 md:mb-0">
             <div className="flex items-center mb-4">
               <img 
-                src="public/lovable-uploads/logo.png" 
+                src="public/Images/logo.png" 
                 alt="OS Logo" 
                 className="h-10 w-auto mr-3"
               />

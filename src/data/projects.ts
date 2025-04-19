@@ -29,16 +29,16 @@ const projects: Project[] = [
     titleEn: "EvalLLMInsight: Data Warehouse for LLM Evaluation",
     description: "Centraliser et analyser des métriques d'évaluation pour les modèles de langage à grande échelle",
     descriptionEn: "Centralize and analyze evaluation metrics for large language models",
-    period: "Avril 2025 - Présent",
-    periodEn: "April 2025 - Present",
+    period: "Avril 2025 - En cours",
+    periodEn: "April 2025 - Ongoing",
     objective: "Centraliser et analyser des métriques d'évaluation pour les modèles de langage à grande échelle (BLEU, ROUGE, perplexité, etc.)",
     objectiveEn: "Centralize and analyze evaluation metrics for large language models (BLEU, ROUGE, perplexity, etc.)",
     longDescription: "Conception d'un entrepôt de données pour évaluer les modèles de langage. Les données de différents benchmarks sont intégrées via SSIS, stockées dans SQL Server, modélisées dans SSAS, puis visualisées dans Power BI pour analyse multi-dimensionnelle.",
     longDescriptionEn: "Design of a data warehouse to evaluate language models. Data from different benchmarks are integrated via SSIS, stored in SQL Server, modeled in SSAS, then visualized in Power BI for multi-dimensional analysis.",
     technologies: ["Microsoft SQL Server", "SSIS", "SSAS", "SQL", "Microsoft Power BI"],
     icon: Database,
-    image: "/public/lovable-uploads/37096719-bb19-4fa2-b8c7-800a7cc93bf0.png",
-    githubLink: "https://github.com/OuahibSalma/LLM-Evaluation-DataWarehouse"
+    image: "/public/Images/LLM.png",
+    // githubLink: "https://github.com/OuahibSalma/LLM-Evaluation-DataWarehouse"
   },
   {
     id: 2,
@@ -46,8 +46,8 @@ const projects: Project[] = [
     titleEn: "Erasmus+ Mobility Management Application",
     description: "Digitaliser et centraliser la gestion des mobilités Erasmus+ en remplaçant les fichiers Excel",
     descriptionEn: "Digitize and centralize Erasmus+ mobility management by replacing Excel files",
-    period: "Février 2025 - Avril 2025",
-    periodEn: "February 2025 - April 2025",
+    period: "Février 2025 - En cours",
+    periodEn: "February 2025 - Ongoing",
     objective: "Digitaliser et centraliser la gestion des mobilités Erasmus+ en remplaçant les fichiers Excel par une plateforme collaborative",
     objectiveEn: "Digitize and centralize Erasmus+ mobility management by replacing Excel files with a collaborative platform",
     longDescription: "Application web pour gérer, visualiser et suivre les mobilités Erasmus+, avec tableau de bord interactif, interface intuitive et système d'authentification multi-institution",
@@ -56,8 +56,8 @@ const projects: Project[] = [
     methodology: ["Conception UML", "architecture client-serveur"],
     tools: ["GitHub", "VS Code"],
     icon: Briefcase,
-    image: "/public/lovable-uploads/23bfa7b8-7aac-44e0-9424-9cafc99bca7d.png",
-    githubLink: "https://github.com/OuahibSalma/erasmus-mobility-manager"
+    image: "/public/Images/Erasmus.png",
+    // githubLink: "https://github.com/OuahibSalma/erasmus-mobility-manager"
   },
   {
     id: 3,
@@ -74,7 +74,7 @@ const projects: Project[] = [
     technologies: ["Java JEE", "JSP", "Servlets", "MySQL", "HTML/CSS", "iText (PDF)", "Jackson (JSON)", "Apache POI (Excel)", "DOM (XML)", "OpenCSV (CSV)"],
     methodology: ["Architecture client-serveur"],
     icon: FileText,
-    image: "/public/lovable-uploads/8f703841-93c6-45bb-9674-46cb1540b0b2.png"
+    image: "/public/Images/CSVJSONXML.jpg"
   },
   {
     id: 4,
@@ -91,8 +91,8 @@ const projects: Project[] = [
     technologies: ["Python", "Scikit-learn", "TensorFlow/Keras", "K-means"],
     methodology: ["Matrices de confusion", "Méthode du coude"],
     icon: Code,
-    image: "/public/lovable-uploads/23bfa7b8-7aac-44e0-9424-9cafc99bca7d.png",
-    githubLink: "https://github.com/OuahibSalma/NetGuard-DDoS-Detection"
+    image: "/public/Images/DDoS.png",
+    githubLink: "https://github.com/OuahibSalma/-NetGuard"
   },
   {
     id: 5,
@@ -108,7 +108,7 @@ const projects: Project[] = [
     longDescriptionEn: "Design of a complete IS with APEX Oracle, modeling (CDM, LDM, PDM), development of management interfaces, and implementation of an analytical dashboard",
     technologies: ["UML", "APEX Oracle", "UX/UI", "Business Intelligence"],
     icon: Monitor,
-    image: "/public/lovable-uploads/9d743970-f029-4582-9ba4-72f67e82cd3d.png"
+    image: "/public/Images/Hanoutna.png"
   },
   {
     id: 6,
@@ -124,8 +124,8 @@ const projects: Project[] = [
     longDescriptionEn: "Comparison of several pre-trained Arabic NLP models available on Hugging Face, with evaluation of speed and accuracy via automated tests",
     technologies: ["Python", "Transformers", "pydub", "gTTS"],
     icon: FileCode,
-    image: "/public/lovable-uploads/37096719-bb19-4fa2-b8c7-800a7cc93bf0.png",
-    githubLink: "https://github.com/OuahibSalma/Lisan-tehniques-de-Deep-Learning"
+    image: "/public/Images/Lisan.jpg",
+    githubLink: "https://github.com/OuahibSalma/Lisan-tehniques-de-Deep-Learning/tree/last_work"
   },
   {
     id: 7,
@@ -141,7 +141,7 @@ const projects: Project[] = [
     longDescriptionEn: "Creation of an interactive application with Bokeh from open source data",
     technologies: ["Python", "Pandas", "Bokeh"],
     icon: BarChart2,
-    image: "/public/lovable-uploads/570f1392-1225-4b49-b852-3b70da07df86.png",
+    image: "/public/Images/Bokeh.png",
     githubLink: "https://github.com/OuahibSalma/Dashboard_habitat-units"
   },
   {
@@ -158,7 +158,7 @@ const projects: Project[] = [
     longDescriptionEn: "Swing application with integrated database, UML design, user interface",
     technologies: ["Java", "Swing", "UML"],
     icon: Laptop,
-    image: "/public/lovable-uploads/cfc5896c-2569-4709-bdc6-43eff6bfa0ba.png"
+    image: "/public/Images/Java.png"
   },
   {
     id: 9,
@@ -174,7 +174,7 @@ const projects: Project[] = [
     longDescriptionEn: "Analysis of orders, consumption and stockouts via Power BI",
     technologies: ["Power BI", "Excel", "Analyse de données"],
     icon: BarChart2,
-    image: "/public/lovable-uploads/23bfa7b8-7aac-44e0-9424-9cafc99bca7d.png"
+    image: "/public/Images/PowerBI.jpeg",
   },
   {
     id: 10,
@@ -190,7 +190,8 @@ const projects: Project[] = [
     longDescriptionEn: "UML modeling, level creation via Tiled, complete game development",
     technologies: ["Python", "Pygame", "UML", "Tiled"],
     icon: Sword,
-    image: "/public/lovable-uploads/9d743970-f029-4582-9ba4-72f67e82cd3d.png"
+    image: "/public/Images/JeuMario.jpg",
+    githubLink: "https://github.com/OuahibSalma/pfe_jeu_Mario/tree/master"
   },
   {
     id: 11,
@@ -206,7 +207,8 @@ const projects: Project[] = [
     longDescriptionEn: "First web project to learn the basics of HTML, CSS and JavaScript",
     technologies: ["HTML", "CSS", "JavaScript"],
     icon: PanelLeft,
-    image: "/public/lovable-uploads/570f1392-1225-4b49-b852-3b70da07df86.png"
+    image: "/public/Images/SiteVitrine.jpg",
+    githubLink: "https://github.com/OuahibSalma/Site_Web_S3"
   }
 ];
 

@@ -20,9 +20,9 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 // EmailJS configuration - replace these with your actual service ID and template ID
-const SERVICE_ID = "service_jgl6z6o";  // Replace with your EmailJS service ID
-const TEMPLATE_ID = "template_j5zklcv"; // Replace with your EmailJS template ID
-const PUBLIC_KEY = "2aE8Jn9MjIh4c1-Xb"; // Replace with your EmailJS public key
+const SERVICE_ID = "service_tly1rpa";  // Replace with your EmailJS service ID
+const TEMPLATE_ID = "template_bwv8prk"; // Replace with your EmailJS template ID
+const PUBLIC_KEY = "U4iymIQz3LOBDX6KP"; // Replace with your EmailJS public key
 
 const Contact = () => {
   const contactRef = useRef<HTMLDivElement>(null);
@@ -182,7 +182,7 @@ const Contact = () => {
               </ul>
             </div>
             
-            <div>
+            {/* <div>
               <h4 className="text-lg font-medium mb-4">{t('quotes.title')}</h4>
               <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
                 <p className="italic text-gray-600 dark:text-gray-400 mb-2">
@@ -190,7 +190,7 @@ const Contact = () => {
                 </p>
                 <p className="text-right text-gray-500 dark:text-gray-400">{t('quotes.quote1.author')}</p>
               </div>
-            </div>
+            </div> */}
           </motion.div>
           
           <motion.div

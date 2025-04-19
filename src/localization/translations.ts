@@ -102,8 +102,8 @@ export const translations = {
     extraActivities: {
       title: "Expérience Extra scolaire :",
       cindh: "Club CINDH",
-      cindhRole: "Responsable Spam, membre cellule dons et sponsoring",
-      cindhText: "Le Club d'Initiation Nationale au Développement Humain offre une opportunité enrichissante de s'engager dans des actions solidaires. En tant que membre, j'ai le privilège de participer à des activités bénéfiques pour la communauté, notamment auprès des enfants, ce qui est source de grande satisfaction personnelle. Au sein de la cellule sponsoring, nous développons des compétences précieuses en communication et négociation. Cette expérience m'a profondément marqué, renforçant ma conviction qu'il est essentiel de tendre la main à ceux dans le besoin, contribuant ainsi à créer une société plus solidaire et empathique.",
+      cindhRole: "Responsable Prospection, membre cellule dons et sponsoring",
+      cindhText: "Au sein du Club d’Initiation Nationale au Développement Humain (CINDH), j’ai occupé le rôle de responsable de la prospection, où j’étais chargé(e) d’identifier et de contacter des partenaires potentiels, notamment sur les réseaux sociaux, afin de soutenir nos actions solidaires. En parallèle, j’ai activement contribué à la cellule dons et sponsoring, développant des compétences clés en communication, négociation et coordination d’équipe. J’ai également pris part à plusieurs initiatives sur le terrain telles que les Caravanes Solidaires de 2024 et 2025 dans des zones rurales, les Journées des Orphelins pendant deux années, l’action \"Iftar Saïm\" de distribution de repas pendant le Ramadan, ainsi que des visites aux personnes âgées. Ces expériences ont profondément enrichi mon parcours humain et m’ont permis de développer un réel sens de l’engagement, de l’organisation et du travail collectif au service de la communauté.",
       activity2: "Activités Volontaires",
       activity2Role: "Membre actif",
       activity2Text: "Participation à diverses activités volontaires et caritatives pour aider les communautés locales et développer mes compétences en leadership et en travail d'équipe.",
@@ -174,7 +174,7 @@ export const translations = {
       birthDate: "Date of birth:",
       birthDateValue: "22/02/2003",
       originCity: "City of origin:",
-      originCityValue: "Marrakech",
+      originCityValue: "Marrakesh",
       currentCity: "Current city:",
       currentCityValue: "Rabat"
     },
@@ -246,11 +246,11 @@ export const translations = {
     extraActivities: {
       title: "Extracurricular Experience:",
       cindh: "CINDH Club",
-      cindhRole: "Spam Manager, member of the donations and sponsorship cell",
-      cindhText: "The National Human Development Initiation Club offers an enriching opportunity to engage in solidarity actions. As a member, I have the privilege of participating in activities that benefit the community, particularly with children, which is a source of great personal satisfaction. Within the sponsorship cell, we develop valuable communication and negotiation skills. This experience has deeply marked me, strengthening my conviction that it is essential to reach out to those in need, thereby contributing to creating a more supportive and empathetic society.",
+      cindhRole: "Influencer Outreach Manager, and member of the donations and sponsorship cell",
+      cindhText: "As a member of the Club for National Initiative in Human Development (CINDH), I served as the Prospecting Lead, where I was responsible for identifying and contacting potential partners, particularly on social media, to support our solidarity-based initiatives. At the same time, I actively contributed to the donations and sponsorship unit, developing key skills in communication, negotiation, and team coordination. I took part in several impactful field activities, such as the 2024 and 2025 Solidarity Caravans in rural areas, the Orphans’ Day events over two consecutive years, the \"Iftar Sa’im\" initiative providing meals during Ramadan, and visits to elderly care homes. These experiences have profoundly enriched me on a human level and helped me strengthen my organizational and teamwork abilities, while fostering a deep sense of commitment to community service.",
       activity2: "Voluntary Activities",
       activity2Role: "Active member",
-      activity2Text: "Participation in various voluntary and charitable activities to help local communities and develop my leadership and teamwork skills.",
+      activity2Text: "Alongside my association work, I participated in various voluntary and charitable activities aimed at supporting local communities. These experiences helped me develop a strong sense of solidarity while enhancing my leadership, communication, and teamwork skills. Being actively involved in social initiatives taught me the importance of empathy, responsibility, and the meaningful impact each individual can have in contributing to a more inclusive and compassionate society.",
       why: "Why Extracurricular Activities:",
       whyText: "Engagement in extracurricular activities considerably enriches a student's profile, demonstrating versatility, initiative, and practical skills. These experiences, whether voluntary, associative, or creative, testify to a balanced and proactive personality, major assets in the eyes of recruiters and for personal development."
     },

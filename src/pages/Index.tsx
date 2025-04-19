@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { Toaster } from "sonner";
 import Navbar from '../components/Navbar';

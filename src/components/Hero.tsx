@@ -50,12 +50,12 @@ const Hero = () => {
           <div className="relative">
             <div className="absolute -z-10 w-72 h-72 bg-purple-200 dark:bg-purple-900 rounded-full opacity-50 blur-3xl"></div>
             <img 
-              src="public/lovable-uploads/9d743970-f029-4582-9ba4-72f67e82cd3d.png" 
+              src="public/Images/OuahibSalma_rond.jpg" 
               alt="Ouahib Salma" 
               className="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-white dark:border-gray-700 shadow-lg z-10"
             />
             <img 
-              src="public/lovable-uploads/01b75ab7-746d-409c-adf5-33d4de8e01a6.png" 
+              src="public/Images/logo.png" 
               alt="Logo OS" 
               className="absolute -bottom-10 -right-10 w-24 h-24 md:w-32 md:h-32 z-20"
             />
