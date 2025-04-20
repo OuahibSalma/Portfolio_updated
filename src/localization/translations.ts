@@ -22,8 +22,6 @@ export const translations = {
       intro3: "Explorez tout information sur moi en défilant",
       frenchCV: "CV Version Française",
       englishCV: "CV Version Anglaise",
-      frenchResume: "Résumé Version Français",
-      englishResume: "Résumé Version Anglais"
     },
     about: {
       title: "Plus de détails :",
